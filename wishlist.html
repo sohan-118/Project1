@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Premium Perfume Shop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-neutral-50 font-['Inter'] text-neutral-800">
+
+    <main class="max-w-[1280px] mx-auto px-4 py-8">
+        <!-- Navbar -->
+        <div class="custom-navbar-wrapper mb-8">
+            <header class="top-header">
+                <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
+                <div class="nav-search-wrapper">
+                    <input type="text" placeholder="Search in..." class="nav-search-input">
+                    <button class="nav-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            
+            
+                <div class="header-utls">
+                     <div class="header-utls">
+            <!-- Language Switcher Added Here -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+                <i class="fa-solid fa-globe text-[#F26522]"></i>
+                <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                </select>
+            </div>
+                <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
+                
+                <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
+                <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
+                
+                <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
+                <a href="cart.html" class="utl-item text-[#F26522]">
+                    <i class="fa-solid fa-basket-shopping"></i>Cart
+                    <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
+                </a>
+            </div>
+                
+            </header>
+            <nav class="menu-ribbon">
+                <ul class="menu-container">
+                    <li><a href="index.html" class="menu-link">Home</a></li>
+                    <li><a href="products.html" class="menu-link">Product</a></li>
+                    <li><a href="about.html" class="menu-link">About</a></li>
+                    <li><a href="contact.html" class="menu-link">Contact us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Wishlist Content -->
+        <h2 class="text-2xl font-['Playfair_Display'] font-bold mb-6 text-neutral-900 border-b pb-3">আপনার পছন্দের উইশলিস্ট</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Wishlist Item -->
+            <div class="bg-white border border-neutral-200 rounded-lg p-4 flex flex-col justify-between shadow-sm relative">
+                <button class="absolute top-3 right-3 text-red-500 hover:text-red-700 text-sm"><i class="fa-solid fa-heart"></i></button>
+                <div>
+                    <div class="bg-neutral-100 h-48 rounded mb-3 flex items-center justify-center text-[#F26522]">
+                        <i class="fa-solid fa-spray-can-sparkles text-4xl"></i>
+                    </div>
+                    <span class="text-[10px] bg-orange-100 text-[#F26522] font-bold px-2 py-0.5 rounded uppercase">Eau De Parfum</span>
+                    <h3 class="font-bold text-sm text-neutral-900 mt-2">French Luxury Perfume</h3>
+                    <p class="text-xs text-neutral-500 mt-1">Long-lasting French perfume.</p>
+                </div>
+                <div class="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between">
+                    <span class="font-bold text-neutral-900 text-sm">৳ ২,৮০০</span>
+                    <button class="bg-[#F26522] text-white text-xs px-3 py-1.5 rounded hover:bg-neutral-800 transition-colors">কার্ডে নিন</button>
+                </div>
+            </div>
+        </div>
+    </main>
+       <!-- ================= 8. COMPACT MEGA FOOTER ================= -->
+<footer class="bg-white border-t border-neutral-200 pt-8 pb-4 px-4 sm:px-6 mt-12">
+    <div class="max-w-[1280px] mx-auto">
+        
+        <!-- Top Row: Brand, Links Grid & Mobile Apps -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 pb-6 border-b border-neutral-100">
+            
+            <!-- Brand Info -->
+            <div class="lg:col-span-2">
+                <a href="#" class="font-['Playfair_Display'] text-lg font-bold tracking-wider text-neutral-900">SCENT<span class="text-[#F26522]">.</span></a>
+                <p class="text-[11px] text-neutral-500 mt-2 mb-3 leading-relaxed max-w-sm">Scent Perfume Atelier is a premium e-commerce platform dedicated to safe, pure and authentic French luxury perfumes & premium Oud blends.</p>
+                <div class="space-y-1.5 text-[11px] text-neutral-600 mb-3.5">
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-[#F26522] w-3.5"></i> Rampura, Dhaka, Bangladesh</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-[#F26522] w-3.5"></i> +8809642922922</p>
+                </div>
+                <!-- Social Icons -->
+                <div class="flex items-center gap-2">
+                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F26522] hover:text-white flex items-center justify-center text-[10px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F26522] hover:text-white flex items-center justify-center text-[10px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F26522] hover:text-white flex items-center justify-center text-[10px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <!-- Information -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Information</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">About us</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Contact us</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Terms & Conditions</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Privacy Policy</a>
+                </nav>
+            </div>
+            
+            <!-- Shop By (5 items) -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Shop By</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Premium Oud</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Eau De Parfum</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Premium Attar</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Body Spray</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Gift Sets</a>
+                </nav>
+            </div>
+            
+            <!-- Support -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Support</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Support Center</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">How to Order</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Happy Return</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">FAQ</a>
+                </nav>
+            </div>
+
+            <!-- Mobile App Download Column -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Get Mobile App</h4>
+                <div class="flex flex-col gap-2">
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-google-play text-sm text-[#F26522]"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Get It On</span>
+                            <span class="text-[10px] font-bold">Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-apple text-sm text-white"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Download on</span>
+                            <span class="text-[10px] font-bold">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Payment Methods & SSLCommerz Badge -->
+        <div class="pt-4 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                <span class="text-[10px] font-semibold text-neutral-500 uppercase tracking-wider">Pay With:</span>
+                
+                <!-- Payment Badges with Icons -->
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-blue-800 bg-blue-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-brands fa-cc-visa text-xs"></i> VISA</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-red-600 bg-red-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-brands fa-cc-mastercard text-xs"></i> MC</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-sky-600 bg-sky-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-brands fa-cc-amex text-xs"></i> AMEX</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-pink-700 bg-pink-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-wallet text-[10px]"></i> bKash</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-orange-700 bg-orange-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-coins text-[10px]"></i> Nagad</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-purple-700 bg-purple-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-rocket text-[10px]"></i> Rocket</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-shield-halved text-[10px] text-blue-600"></i> SSLCommerz</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-truck-fast text-[10px] text-[#F26522]"></i> COD</span>
+                </div>
+            </div>
+
+            <!-- SSLCommerz Verified Badge -->
+            <div class="bg-blue-900 text-white text-[9px] font-bold px-2.5 py-1.5 rounded tracking-wide shadow-xs flex items-center gap-1">
+                <span>Verified by</span>
+                <span class="text-cyan-300 font-extrabold tracking-normal">SSLCOMMERZ</span>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<!-- ১. ফায়ারবেস সিডিএন লাইব্রেরি -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script> <!-- ফায়ারবেস অথ লাইব্রেরি যুক্ত করা হয়েছে -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <!-- ৩. আপনার ডেটাবেজ ফাইল -->
+    <script src="db.js"></script>
+
+    <!-- ৪. আপনার মূল লজিক ফাইল -->
+    <script src="script.js"></script>
+
+</body>
+</html>

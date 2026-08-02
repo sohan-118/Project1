@@ -1,57 +1,474 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,inital-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>
-            sohan.com
-        </title>
-    </head>
-    <body>
-     <div class="contner">
-        <div class="contnt">
-            <section class="top-section">
-                <div class="image_section">
-                    <img src="613_n.jpg" alt="tribute">
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent Perfume Atelier</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#faf8f5] font-['Plus_Jakarta_Sans',sans-serif] text-neutral-800">
+
+   <!-- ================= 1. CUSTOM NAVBAR & RIBBON ================= -->
+<div class="custom-navbar-wrapper mb-8">
+            <header class="top-header">
+                <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
+                <div class="nav-search-wrapper">
+                    <input type="text" placeholder="Search in..." class="nav-search-input">
+                    <button class="nav-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <div>
-                    <h1>Shikder Mohammad Sohan</h1>
-        
+            
+            
+                <div class="header-utls">
+                     <div class="header-utls">
+            <!-- Language Switcher Added Here -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+                <i class="fa-solid fa-globe text-[#F26522]"></i>
+                <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                </select>
+            </div>
+                    <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
+                    <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
+                    <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
+                    <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
+                    <a href="cart.html" class="utl-item text-[#F26522]">
+                        <i class="fa-solid fa-basket-shopping"></i>Cart
+                        <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
+                    </a>
                 </div>
-            </section>
-            <section class="about_section">
-                <h2>About My Self !!</h2>
-               <p>
-                My name is Sohan Shikder, and I am a dedicated student who 
-                always tries to learn new things with curiosity and 
-                determination. I enjoy studying subjects that help me 
-                develop both my knowledge and problem-solving skills. Apart
-                 from academics, I like exploring technology, coding, and 
-                 creative projects that challenge my thinking. My goal is 
-                 to grow as a confident, skilled, and responsible person who 
-                 can contribute positively to society. I believe that hard work 
-                 and a positive attitude are the keys to success.
-               </p>
-            </section>
-            <section class="bio">
-                <h3>Biography</h3>
-               <ul>
-                  <li>Ssc passing year 2019</li>
-                  <li>Amin Model Town School </li>
-                  <li>Hsc passing year 2021</li>
-                  <li>Atomic Energy Research Establishment Collage</li>
-                  <li>Bsc in Compuret Science and Engineering </li>
-                  <li>Dhaka International University</li>
-                  <LI>Worak at Python,C,C++,JavaScript</LI>
-               </ul>
-            </section>
-            <footer>
-                <p><a href="https://www.facebook.com/sohansikder.sikdersohan/"
-                    target="_blank">Read more about Sohan</a></p>
-            </footer>
+                
+            </header>
+            <nav class="menu-ribbon">
+                <ul class="menu-container">
+                    <li><a href="index.html" class="menu-link">Home</a></li>
+                    <li><a href="products.html" class="menu-link">Product</a></li>
+                    <li><a href="about.html" class="menu-link">About</a></li>
+                    <li><a href="contact.html" class="menu-link">Contact us</a></li>
+                </ul>
+            </nav>
         </div>
-     </div>
-    </body>
+
+   <!-- ================= MAIN BODY CONTENT ================= -->
+<main class="w-full mx-auto px-0 mt-3">
+
+   <!-- 2. MODERN E-COMMERCE HERO BANNER (Full Browser Width matching Nav Ribbon) -->
+<div class="w-full bg-neutral-900 my-0">
+    <div class="w-full relative overflow-hidden h-[320px] md:h-[460px] group shadow-sm">
+
+        <!-- Slide 1 -->
+        <div id="slide-1" class="absolute inset-0 transition-opacity duration-700 opacity-100 flex items-center px-12 md:px-20 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10">
+            <img id="hero-img-1" src="3" class="absolute inset-0 w-full h-full object-cover -z-10 cursor-pointer" alt="Perfume 1" onclick="goToProductDetails()">
+            <div class="relative text-white z-20 max-w-md pointer-events-none">
+                <!-- ব্যانারে প্রোডাক্টের নাম না দেখানোর জন্য টেক্সট ট্যাগটি খালি রাখা হয়েছে -->
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div id="slide-2" class="absolute inset-0 transition-opacity duration-700 opacity-0 flex items-center px-12 md:px-20 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-0 pointer-events-none">
+            <img id="hero-img-2" src="#" class="absolute inset-0 w-full h-full object-cover -z-10 cursor-pointer" alt="Perfume 2" onclick="goToProductDetails()">
+            <div class="relative text-white z-20 max-w-md pointer-events-none">
+                <!-- ব্যانারে প্রোডাক্টের নাম না দেখানোর জন্য টেক্সট ট্যাগটি খালি রাখা হয়েছে -->
+            </div>
+        </div>
+
+        <!-- Slider Navigation Arrows -->
+        <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 text-neutral-800 w-10 h-12 rounded-md flex items-center justify-center shadow-md z-30 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white">
+            <i class="fa-solid fa-chevron-left text-sm"></i>
+        </button>
+        <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/90 text-neutral-800 w-10 h-12 rounded-md flex items-center justify-center shadow-md z-30 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white">
+            <i class="fa-solid fa-chevron-right text-sm"></i>
+        </button>
+    </div>
+</div>
+
+</main>
+
+
+       <!-- 3. FEATURED ROUND CATEGORIES -->
+<section class="mt-10 px-4 md:px-8">
+    <div class="text-center mb-6">
+        <h3 class="text-base font-semibold text-neutral-800 tracking-wide relative inline-block after:content-[''] after:w-12 after:h-[2px] after:bg-[#2596be] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2">Featured Categories</h3>
+    </div>
+    <div class="flex gap-4 overflow-x-auto py-2 justify-between no-scrollbar">
+        
+        <!-- Eau De Parfum -->
+        <a href="parfum.html" class="flex flex-col items-center min-w-[90px] flex-1 group cursor-pointer">
+            <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Eau De Parfum">
+            </div>
+            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Eau De Parfum</span>
+        </a>
+
+        <!-- Premium Oud -->
+        <a href="oud.html" class="flex flex-col items-center min-w-[90px] flex-1 group cursor-pointer">
+            <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Premium Oud">
+            </div>
+            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Premium Oud</span>
+        </a>
+
+        <!-- Premium Attar -->
+        <a href="attar.html" class="flex flex-col items-center min-w-[90px] flex-1 group cursor-pointer">
+            <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Premium Attar">
+            </div>
+            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Premium Attar</span>
+        </a>
+
+        <!-- Gift Sets -->
+        <a href="gift-sets.html" class="flex flex-col items-center min-w-[90px] flex-1 group cursor-pointer">
+            <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
+                <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Gift Sets">
+            </div>
+            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Gift Sets</span>
+        </a>
+
+        <!-- Men's Luxury -->
+        <a href="mens-luxury.html" class="flex flex-col items-center min-w-[90px] flex-1 group cursor-pointer">
+            <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
+                <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Men's Luxury">
+            </div>
+            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Men's Luxury</span>
+        </a>
+
+    </div>
+</section>
+
+<!-- 4. SECTION 1: 4-COLUMN PRODUCT GRID -->
+<section class="mt-12 px-4 md:px-8">
+    <div class="flex justify-between items-center mb-4 border-b border-neutral-200 pb-2">
+        <h3 class="text-sm md:text-base font-bold text-neutral-800 tracking-wide uppercase">Premium Combos</h3>
+        <a href="#" class="text-xs text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+    </div>
+
+    <!-- ডাইনামিক প্রোডাক্ট লোড হওয়ার জন্য সঠিক আইডিযুক্ত গ্রিড কন্টেইনার -->
+    <div id="premium-combos-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 items-stretch">
+        <!-- জাভাস্ক্রিপ্ট থেকে এই অংশে স্বয়ংক্রিয়ভাবে প্রোডাক্ট কার্ডগুলো লোড হবে -->
+    </div>
+</section>
+
+<!-- 5. MID-PAGE PROMOTIONAL FULL WIDTH BANNER WITH GLASS EFFECT & ANIMATION -->
+<section class="mt-8 px-4 md:px-8">
+    <div class="relative w-full h-[220px] md:h-[280px] rounded-xl overflow-hidden shadow-md flex items-center justify-center text-center px-6">
+        <!-- ব্যাকগ্রাউন্ড ইমেজ অটো-জুম অ্যানিমেশনসহ -->
+        <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=1400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover animate-infinite-zoom" alt="Mid Banner">
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <!-- গ্লাস ইফেক্ট কার্ড যার ভেতর টেক্সট থাকবে -->
+        <div class="relative z-10 max-w-xl p-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-2xl text-white animate-fade-in-up">
+            <span class="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-[#F26522] bg-white/90 px-3 py-1 rounded-full shadow-sm">Special Collection</span>
+            <h2 class="font-['Playfair_Display'] text-xl md:text-3xl font-bold tracking-wide leading-snug mt-3">Experience the Luxury, <br>Enjoy the Comfort</h2>
+            <p class="text-[11px] md:text-xs text-neutral-200 font-light mt-2 max-w-md mx-auto">Discover our premium collection, crafted with the finest ingredients and French formula blending.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 6. SECTION 2: NEXT CATEGORY PRODUCT GRID -->
+<section class="mt-8 px-4 md:px-8">
+    <div class="flex justify-between items-center mb-4 border-b border-neutral-200 pb-2">
+        <h3 class="text-sm md:text-base font-bold text-neutral-800 tracking-wide uppercase">Signature Attar & Oils</h3>
+        <a href="products.html?category=signature-attar" class="text-xs text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+    </div>
+
+    <!-- ডাইনামিক প্রোডাক্ট লোড হওয়ার জন্য সঠিক আইডিযুক্ত গ্রিড কন্টেইনার -->
+    <div id="signature-attar-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 items-stretch">
+        <!-- জাভাস্ক্রিপ্ট থেকে এই অংশে স্বয়ংক্রিয়ভাবে অ্যাটার ও অয়েলের প্রোডাক্টগুলো লোড হবে -->
+    </div>
+</section>
+
+<!-- মাঝখানের নতুন সেকশন হেডার (ফাঁকা জায়গা দূর করার জন্য) -->
+<section class="mt-10 px-4 md:px-8">
+    <div class="flex justify-between items-center mb-4 border-b border-neutral-200 pb-2">
+        <h3 class="text-sm md:text-base font-bold text-neutral-800 tracking-wide uppercase">All Products</h3>
+        <a href="products.html" class="text-xs text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+    </div>
+
+    <!-- হোমপেজের প্রোডাক্ট গ্রিড ডিভটিতে id="product-grid" যুক্ত করতে হবে -->
+    <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <!-- এখানে ডাইনামিক প্রোডাক্টগুলো চলে আসবে -->
+    </div>
+</section>
+
+<!-- Load More বাটন -->
+<div class="text-center mt-8">
+    <button id="load-more-btn" onclick="loadMoreProducts()" class="border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white px-8 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors cursor-pointer shadow-sm">
+        Load More
+    </button>
+</div>
+
+<!-- 7. FEATURES / VALUE PROPOSITION SECTION WITH SOFT BACKGROUND -->
+<section class="mt-14 mb-14 py-10 px-4 md:px-8 bg-[#F4F5F7]">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Box 1: Delivery -->
+        <div class="bg-white border border-neutral-200/80 p-5 rounded-lg shadow-2xs flex items-center gap-4 hover:border-[#F26522] transition-colors">
+            <div class="w-12 h-12 rounded-full border border-red-500 text-red-500 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-box text-lg"></i>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">1/2 Days Delivery</h4>
+                <p class="text-[11px] text-neutral-500 mt-0.5">fastest delivery</p>
+            </div>
+        </div>
+
+        <!-- Box 2: Authorized Product -->
+        <div class="bg-white border border-neutral-200/80 p-5 rounded-lg shadow-2xs flex items-center gap-4 hover:border-[#F26522] transition-colors">
+            <div class="w-12 h-12 rounded-full border border-red-500 text-red-500 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-award text-lg"></i>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">Authorized Product</h4>
+                <p class="text-[11px] text-neutral-500 mt-0.5">within 30 days for an exchange</p>
+            </div>
+        </div>
+
+        <!-- Box 3: Customer Support -->
+        <div class="bg-white border border-neutral-200/80 p-5 rounded-lg shadow-2xs flex items-center gap-4 hover:border-[#F26522] transition-colors">
+            <div class="w-12 h-12 rounded-full border border-red-500 text-red-500 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-headset text-lg"></i>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">Customer Service Support</h4>
+                <p class="text-[11px] text-neutral-500 mt-0.5">8am to 10pm</p>
+            </div>
+        </div>
+
+        <!-- Box 4: Flexible Payments -->
+        <div class="bg-white border border-neutral-200/80 p-5 rounded-lg shadow-2xs flex items-center gap-4 hover:border-[#F26522] transition-colors">
+            <div class="w-12 h-12 rounded-full border border-red-500 text-red-500 flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-credit-card text-lg"></i>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">Flexible Payments</h4>
+                <p class="text-[11px] text-neutral-500 mt-0.5">pay with multiple credit cards</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= 8. COMPACT MEGA FOOTER ================= -->
+<footer class="bg-white border-t border-neutral-200 pt-8 pb-4 px-4 sm:px-6 mt-12">
+    <div class="max-w-[1280px] mx-auto">
+        
+        <!-- Top Row: Brand, Links Grid & Mobile Apps -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 pb-6 border-b border-neutral-100">
+            
+            <!-- Brand Info -->
+            <div class="lg:col-span-2">
+                <a href="#" class="font-['Playfair_Display'] text-lg font-bold tracking-wider text-neutral-900">SCENT<span class="text-[#F26522]">.</span></a>
+                <p class="text-[11px] text-neutral-500 mt-2 mb-3 leading-relaxed max-w-sm">Scent Perfume Atelier is a premium e-commerce platform dedicated to safe, pure and authentic French luxury perfumes & premium Oud blends.</p>
+                <div class="space-y-1.5 text-[11px] text-neutral-600 mb-3.5">
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-[#F26522] w-3.5"></i> Rampura, Dhaka, Bangladesh</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-[#F26522] w-3.5"></i> +8809642922922</p>
+                </div>
+                <!-- Social Icons -->
+                <div class="flex items-center gap-2">
+                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F26522] hover:text-white flex items-center justify-center text-[10px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F26522] hover:text-white flex items-center justify-center text-[10px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F26522] hover:text-white flex items-center justify-center text-[10px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <!-- Information -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Information</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">About us</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Contact us</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Terms & Conditions</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Privacy Policy</a>
+                </nav>
+            </div>
+            
+            <!-- Shop By (5 items) -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Shop By</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="oud.html" class="text-neutral-500 hover:text-[#F26522] transition-colors">Premium Oud</a>
+                    <a href="parfum.html" class="text-neutral-500 hover:text-[#F26522] transition-colors">Eau De Parfum</a>
+                    <a href="attar.html" class="text-neutral-500 hover:text-[#F26522] transition-colors">Premium Attar</a>
+                    <a href="mens-luxury.html" class="text-neutral-500 hover:text-[#F26522] transition-colors">Mens Luxury</a>
+                    <a href="gift-sets.html" class="text-neutral-500 hover:text-[#F26522] transition-colors">Gift Sets</a>
+                </nav>
+            </div>
+            
+            <!-- Support -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Support</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Support Center</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">How to Order</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">Happy Return</a>
+                    <a href="#" class="text-neutral-500 hover:text-[#F26522] transition-colors">FAQ</a>
+                </nav>
+            </div>
+
+            <!-- Mobile App Download Column -->
+            <div>
+                <h4 class="text-[11px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Get Mobile App</h4>
+                <div class="flex flex-col gap-2">
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-google-play text-sm text-[#F26522]"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Get It On</span>
+                            <span class="text-[10px] font-bold">Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-apple text-sm text-white"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Download on</span>
+                            <span class="text-[10px] font-bold">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Payment Methods & SSLCommerz Badge -->
+        <div class="pt-4 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                <span class="text-[10px] font-semibold text-neutral-500 uppercase tracking-wider">Pay With:</span>
+                
+                <!-- Payment Badges with Icons -->
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-blue-800 bg-blue-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-brands fa-cc-visa text-xs"></i> VISA</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-red-600 bg-red-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-brands fa-cc-mastercard text-xs"></i> MC</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-sky-600 bg-sky-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-brands fa-cc-amex text-xs"></i> AMEX</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-pink-700 bg-pink-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-wallet text-[10px]"></i> bKash</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-orange-700 bg-orange-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-coins text-[10px]"></i> Nagad</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-purple-700 bg-purple-50/60 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-rocket text-[10px]"></i> Rocket</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-shield-halved text-[10px] text-blue-600"></i> SSLCommerz</span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded text-[9px] font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><i class="fa-solid fa-truck-fast text-[10px] text-[#F26522]"></i> COD</span>
+                </div>
+            </div>
+
+            <!-- SSLCommerz Verified Badge -->
+            <div class="bg-blue-900 text-white text-[9px] font-bold px-2.5 py-1.5 rounded tracking-wide shadow-xs flex items-center gap-1">
+                <span>Verified by</span>
+                <span class="text-cyan-300 font-extrabold tracking-normal">SSLCOMMERZ</span>
+            </div>
+        </div>
+
+    </div>
+</footer>
+<!-- ১. ফায়ারবেস মডিউল ও ফায়ারবেস লাইব্রেরি (Modular SDK) -->
+<!-- ১. ফায়ারবেস মডিউল ও ফায়ারবেস লাইব্রেরি (Modular SDK) -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // ফায়ারবেস কনফিগারেশন
+    const firebaseConfig = {
+        apiKey: "AIzaSyD6TSzBthiUw_HkKfBc3hkQnw_mQEs8FZU",
+        authDomain: "nayan-bc068.firebaseapp.com",
+        projectId: "nayan-bc068",
+        storageBucket: "nayan-bc068.firebasestorage.app",
+        messagingSenderId: "782323259018",
+        appId: "1:782323259018:web:a428fe0d96897711223f73",
+        measurementId: "G-8PJVBLSPZV"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // ফায়ারবেস থেকে লাইভ প্রোডাক্ট এবং ব্যানার ফেচ করার ফাংশন
+    async function fetchLiveWebsiteData() {
+        try {
+            let firebaseProducts = [];
+            
+            // Firestore থেকে products কালেকশন আনা
+            const querySnapshot = await getDocs(collection(db, "products"));
+            querySnapshot.forEach((doc) => {
+                const productData = { id: doc.id, ...doc.data() };
+                firebaseProducts.push(productData);
+            });
+
+            // লুপের বাইরে এসে লেটেস্ট প্রোডাক্টগুলো আলাদা করে ফিল্টার করার লজিক
+            const slider1Product = firebaseProducts.slice().reverse().find(p => p.homeSection && p.homeSection.trim() === "slider-1");
+            const slider2Product = firebaseProducts.slice().reverse().find(p => p.homeSection && p.homeSection.trim() === "slider-2");
+            const sideBannerProduct = firebaseProducts.slice().reverse().find(p => p.homeSection && p.homeSection.trim() === "side-banner");
+
+            // ১. স্লাইডার ১ আপডেট
+            if (slider1Product) {
+                const imgEl = document.getElementById('hero-img-1');
+                const titleEl = document.getElementById('hero-title-1');
+                const imageUrl = slider1Product.image || slider1Product.images?.[0] || '';
+                if (imgEl && imageUrl) imgEl.src = imageUrl;
+                if (titleEl && slider1Product.title) {
+                    titleEl.innerHTML = slider1Product.title.replace(/\s+/g, '<br>');
+                }
+            }
+
+            // ২. স্লাইডার ২ আপডেট
+            if (slider2Product) {
+                const imgEl = document.getElementById('hero-img-2');
+                const titleEl = document.getElementById('hero-title-2');
+                const imageUrl = slider2Product.image || slider2Product.images?.[0] || '';
+                if (imgEl && imageUrl) imgEl.src = imageUrl;
+                if (titleEl && slider2Product.title) {
+                    titleEl.innerHTML = slider2Product.title.replace(/\s+/g, '<br>');
+                }
+            }
+
+            // ৩. সাইড ব্যানার আপডেট এবং ক্লিক করলে ডিটেইলস পেজে যাওয়ার ব্যবস্থা
+            if (sideBannerProduct) {
+                const imgEl = document.getElementById('side-banner-img');
+                const titleEl = document.getElementById('side-banner-title');
+                const cardEl = document.getElementById('side-banner-card');
+                const imageUrl = sideBannerProduct.image || sideBannerProduct.images?.[0] || '';
+
+                if (imgEl && imageUrl) imgEl.src = imageUrl;
+                if (titleEl && sideBannerProduct.title) {
+                    titleEl.innerText = sideBannerProduct.title;
+                }
+                if (cardEl && sideBannerProduct.id) {
+                    cardEl.onclick = function() {
+                        window.location.href = `product-details.html?id=${sideBannerProduct.id}`;
+                    };
+                }
+            }
+
+            // যদি ফায়ারবেসে প্রোডাক্ট থাকে, সেগুলোকে প্রাধান্য দেওয়া হবে, না থাকলে db.js এর স্ট্যাটিক ডাটা থাকবে
+            let finalProducts = firebaseProducts.length > 0 ? firebaseProducts : (typeof productsData !== 'undefined' ? Object.values(productsData) : []);
+
+            // script.js এর ফাংশনে ডাটা এবং ডাটাবেজ ইনস্ট্যান্স পাস করা
+            if (typeof window.initializeProducts === 'function') {
+                window.initializeProducts(finalProducts, db);
+            }
+        } catch (error) {
+            console.error("Live data fetch error: ", error);
+            // কোনো এরর হলে স্ট্যাটিক db.js ফাইল ফলব্যাক হিসেবে কাজ করবে
+            if (typeof window.initializeProducts === 'function') {
+                let fallbackProducts = typeof productsData !== 'undefined' ? Object.values(productsData) : [];
+                window.initializeProducts(fallbackProducts, db);
+            }
+        }
+    }
+
+    // পেজ লোড হওয়ার সাথে সাথে ফেচ কল করা
+    fetchLiveWebsiteData();
+</script>
+
+<!-- ফায়ারবেস কমপ্যাট সিডিএন -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<!-- ডেটাবেজ ও মূল লজিক ফাইল -->
+<script src="db.js"></script>
+<script src="script.js"></script>
+</body>
 </html>

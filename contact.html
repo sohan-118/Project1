@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SCENT</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 font-sans">
+
+    <!-- Navbar Section (আপনার প্রজেক্টের নেভবার এখানে থাকবে) -->
+    <nav class="bg-white border-b border-slate-200 py-4 px-6 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-black tracking-wider text-slate-900">SCENT.</a>
+        <div class="space-x-6 text-sm font-semibold text-slate-700">
+            <a href="index.html" class="hover:text-[#F26522]">HOME</a>
+            <a href="product.html" class="hover:text-[#F26522]">PRODUCT</a>
+            <a href="about.html" class="hover:text-[#F26522]">ABOUT</a>
+            <a href="contact.html" class="text-[#F26522]">CONTACT US</a>
+        </div>
+    </nav>
+
+    <!-- Main Contact Section -->
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-extrabold text-slate-900 mb-8">Contact Us</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Office Info Box -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <h2 class="text-xl font-bold text-slate-800">Our Office & Hotline</h2>
+                <div class="flex items-start gap-3 text-slate-600 text-sm">
+                    <i class="fa-solid fa-location-dot text-[#F26522] mt-1"></i>
+                    <p>Rampura, Dhaka, Bangladesh</p>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 text-sm">
+                    <i class="fa-solid fa-phone text-[#F26522]"></i>
+                    <p>+880 1234 567890</p>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 text-sm">
+                    <i class="fa-solid fa-envelope text-[#F26522]"></i>
+                    <p>support@signatureattar.com</p>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 text-sm">
+                    <i class="fa-brands fa-whatsapp text-[#F26522]"></i>
+                    <p>WhatsApp: +880 1234 567890</p>
+                </div>
+            </div>
+
+            <!-- Send Message Form -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-800 mb-6">Send Us a Message</h2>
+                
+                <!-- ফর্মের মধ্যে onsubmit যোগ করা হয়েছে -->
+                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#F26522]">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#F26522]">
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message..." rows="4" required class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#F26522]"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[#F26522] hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-sm">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১. ফায়ারবেস সিডিএন লাইব্রেরি (Compat ভার্সন) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <!-- ৩. আপনার ডেটাবেজ ফাইল -->
+    <script src="db.js"></script>
+
+    <!-- ৪. আপনার মূল লজিক ও কন্টাক্ট ফর্ম সাবমিট হ্যান্ডেলার ফাইল -->
+    <script src="script.js"></script>
+
+    <!-- কন্টাক্ট ফর্ম ডাটা ফায়ারবেসে সেভ করার স্ক্রিপ্ট -->
+    <script>
+        // যদি আপনার মূল logic কোড (script.js)-এ এই ফাংশনটি আগে থেকেই না থাকে, তবে এটি ব্যবহার করতে পারেন:
+        window.handleContactSubmit = async function(e) {
+            e.preventDefault();
+
+            const nameInput = e.target.querySelector('input[type="text"]');
+            const emailInput = e.target.querySelector('input[type="email"]');
+            const messageInput = e.target.querySelector('textarea');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const message = messageInput ? messageInput.value.trim() : '';
+
+            if (!name || !email || !message) {
+                alert('দয়া করে সব ফিল্ডগুলো পূরণ করুন।');
+                return;
+            }
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Sending...';
+            }
+
+            try {
+                // ফায়ারবেস কমপ্যাট ভার্সন ব্যবহার করে ডাটা সেভ করা
+                await firebase.firestore().collection("messages").add({
+                    name: name,
+                    email: email,
+                    message: message,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                alert('আপনার মেসেজটি সফলভাবে পাঠানো হয়েছে! ধন্যবাদ। 🚀');
+                e.target.reset();
+            } catch (error) {
+                console.error("মেসেজ পাঠাতে সমস্যা হয়েছে: ", error);
+                alert('মেসেজ পাঠানো সম্ভব হয়নি। আবার চেষ্টা করুন।');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Submit';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

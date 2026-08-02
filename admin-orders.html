@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Orders Panel - SCENT.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-neutral-100 font-['Inter'] text-neutral-800 antialiased selection:bg-[#F26522] selection:text-white">
+
+    <!-- হেডার -->
+    <header class="bg-white border-b border-neutral-200/80 py-4 shadow-2xs sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <h1 class="text-lg sm:text-xl font-['Playfair_Display'] font-bold text-neutral-900 tracking-tight">SCENT<span class="text-[#F26522]">.</span> | <span class="text-xs sm:text-sm font-sans font-semibold text-neutral-600 uppercase tracking-wider">Admin Dashboard</span></h1>
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-neutral-600 hover:text-[#F26522] bg-neutral-50 hover:bg-orange-50/50 border border-neutral-200 px-3.5 py-2 rounded-xl transition-all">
+                <i class="fa-solid fa-arrow-left"></i> Return to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- মেইন কন্টেন্ট -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-['Playfair_Display'] font-bold text-neutral-900 tracking-tight">All Customer Orders and Details</h2>
+                <p class="text-xs sm:text-sm text-neutral-500 mt-1">Manage customer purchases, delivery updates, and product reviews in real-time.</p>
+            </div>
+        </div>
+
+        <div id="admin-orders-container" class="space-y-6">
+            <!-- অর্ডারগুলো এখানে ডাইনামিকালি লোড হবে -->
+        </div>
+    </main>
+
+    <script>
+        // লোকালস্টোরেজ থেকে সমস্ত অর্ডার এবং রিভিউ লোড করার ফাংশন
+        function loadAdminOrders() {
+            const container = document.getElementById('admin-orders-container');
+            let orders = JSON.parse(localStorage.getItem('orders')) || [];
+            let allReviews = JSON.parse(localStorage.getItem('product_reviews')) || {}; // প্রোডাক্ট রিভিউ স্টোর করার অবজেক্ট বা অ্যারে
+
+            container.innerHTML = "";
+
+            if (orders.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white border border-neutral-200/85 rounded-2xl p-12 text-center shadow-xs max-w-xl mx-auto my-12">
+                        <div class="w-14 h-14 bg-orange-50 text-[#F26522] rounded-full flex items-center justify-center mx-auto mb-4 text-xl shadow-inner">
+                            <i class="fa-solid fa-box-open"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-neutral-800">No Orders Found</h3>
+                        <p class="text-xs text-neutral-500 mt-1">Currently, there are no new orders in the system!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            orders.forEach((order, index) => {
+                let itemsHtml = '';
+                
+                order.items.forEach(item => {
+                    // যদি এই প্রোডাক্টের কোনো রিভিউ থাকে তা খুঁজে বের করা
+                    let productReviews = allReviews[item.id] || [];
+                    let reviewText = productReviews.length > 0 ? productReviews[productReviews.length - 1].review : 'No reviews available';
+                    let ratingVal = productReviews.length > 0 ? productReviews[productReviews.length - 1].rating : 0;
+
+                    let starsHtml = '';
+                    for(let i = 1; i <= 5; i++) {
+                        starsHtml += `<i class="fa-solid fa-star text-[11px] ${i <= ratingVal ? 'text-amber-400' : 'text-neutral-200'}"></i>`;
+                    }
+
+                    itemsHtml += `
+                        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-neutral-100 pb-4 mb-4 last:border-0 last:pb-0 last:mb-0">
+                            <div class="flex items-center gap-3.5">
+                                <img src="${item.image || 'https://via.placeholder.com/60'}" class="w-14 h-14 object-cover rounded-xl border border-neutral-200/80 shadow-2xs" alt="${item.title}">
+                                <div>
+                                    <h4 class="font-bold text-neutral-900 text-xs sm:text-sm line-clamp-1">${item.title}</h4>
+                                    <p class="text-xs text-neutral-500 font-medium mt-0.5">Price: <span class="text-neutral-800 font-semibold">${item.price}</span> | Quantity: <span class="text-neutral-800 font-semibold">${item.quantity} pcs</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Customer Review Section -->
+                            <div class="bg-neutral-50/80 p-3.5 rounded-xl border border-neutral-200/80 w-full lg:w-80 shadow-2xs">
+                                <span class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block mb-1">Customer Review:</span>
+                                <div class="flex items-center gap-1 mb-1">${starsHtml}</div>
+                                <p class="text-xs text-neutral-700 italic leading-relaxed">"${reviewText}"</p>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const orderCard = document.createElement('div');
+                orderCard.className = "bg-white border border-neutral-200/85 rounded-2xl p-6 sm:p-7 shadow-xs space-y-5 transition-all hover:shadow-md";
+
+                orderCard.innerHTML = `
+                    <div class="flex flex-wrap justify-between items-center border-b border-neutral-100 pb-4 gap-2">
+                        <div>
+                            <span class="text-xs font-bold text-[#F26522] bg-orange-50 px-3 py-1.5 rounded-lg border border-orange-100/60 shadow-2xs">${order.orderId}</span>
+                            <span class="text-xs text-neutral-500 ml-2 font-medium">Date: ${order.date || 'N/A'}</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold px-3.5 py-1.5 bg-emerald-50 text-emerald-600 rounded-full border border-emerald-100/60 shadow-2xs inline-flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Status: ${order.status || 'Processing'}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs bg-neutral-50/60 p-4 sm:p-5 rounded-xl border border-neutral-200/80">
+                        <div>
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-2">Customer Information:</p>
+                            <p class="font-semibold text-neutral-900 text-sm mb-1"><i class="fa-solid fa-user text-[#F26522] mr-2 w-4"></i> ${order.name}</p>
+                            <p class="text-neutral-600 mb-1"><i class="fa-solid fa-phone text-[#F26522] mr-2 w-4"></i> ${order.phone}</p>
+                            <p class="text-neutral-600"><i class="fa-solid fa-envelope text-[#F26522] mr-2 w-4"></i> ${order.email || 'Email not provided'}</p>
+                        </div>
+                        <div class="border-t md:border-t-0 md:border-l border-neutral-200/60 pt-3 md:pt-0 md:pl-4">
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-2">Shipping Location and Payment:</p>
+                            <p class="text-neutral-700 mb-1.5"><i class="fa-solid fa-location-dot text-[#F26522] mr-2 w-4"></i> <strong>Address:</strong> ${order.address}</p>
+                            <p class="text-neutral-700"><i class="fa-solid fa-wallet text-[#F26522] mr-2 w-4"></i> <strong>Payment Method:</strong> <span class="font-semibold">${order.paymentMethod === 'cod' ? 'Cash on Delivery (COD)' : 'Online Payment'}</span></p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider mb-3">Ordered Products:</p>
+                        <div class="bg-white rounded-xl border border-neutral-100 p-4">
+                            ${itemsHtml}
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(orderCard);
+            });
+        }
+
+        // পেজ লোড হলে অর্ডারগুলো রেন্ডার হবে
+        document.addEventListener('DOMContentLoaded', loadAdminOrders);
+    </script>
+</body>
+</html>
