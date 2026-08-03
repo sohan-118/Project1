@@ -8,19 +8,51 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-50 font-sans">
 
     <!-- Navbar Section (আপনার প্রজেক্টের নেভবার এখানে থাকবে) -->
-    <nav class="bg-white border-b border-slate-200 py-4 px-6 flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-black tracking-wider text-slate-900">SCENT.</a>
-        <div class="space-x-6 text-sm font-semibold text-slate-700">
-            <a href="index.html" class="hover:text-[#F26522]">HOME</a>
-            <a href="product.html" class="hover:text-[#F26522]">PRODUCT</a>
-            <a href="about.html" class="hover:text-[#F26522]">ABOUT</a>
-            <a href="contact.html" class="text-[#F26522]">CONTACT US</a>
+     <div class="custom-navbar-wrapper mb-8">
+            <header class="top-header">
+                <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
+                <div class="nav-search-wrapper">
+                    <input type="text" placeholder="Search in..." class="nav-search-input">
+                    <button class="nav-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            
+            
+                <div class="header-utls">
+                     <div class="header-utls">
+            <!-- Language Switcher Added Here -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+                <i class="fa-solid fa-globe text-[#F26522]"></i>
+                <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                </select>
+            </div>
+                    <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
+                    <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
+                    <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
+                    <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
+                    <a href="cart.html" class="utl-item text-[#F26522]">
+                        <i class="fa-solid fa-basket-shopping"></i>Cart
+                        <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
+                    </a>
+                </div>
+                
+            </header>
+            <nav class="menu-ribbon">
+                <ul class="menu-container">
+                    <li><a href="index.html" class="menu-link text-[15px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link  text-[15px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link text-[15px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link text-[#F26522] text-[15px]">Contact us</a></li>
+                </ul>
+            </nav>
         </div>
-    </nav>
+
 
     <!-- Main Contact Section -->
     <div class="max-w-6xl mx-auto px-4 py-12">
