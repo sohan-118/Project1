@@ -16,7 +16,7 @@
 <body class="bg-neutral-50 text-neutral-800 flex flex-col min-h-screen">
 
     <!-- NAVBAR -->
-    <div class="custom-navbar-wrapper mb-8">
+   <div class="custom-navbar-wrapper mb-8">
             <header class="top-header">
                 <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
                 <div class="nav-search-wrapper">
@@ -35,25 +35,26 @@
                     <option value="bn">বাংলা</option>
                 </select>
             </div>
-                <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
-                <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
-                <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                <a href="cart.html" class="utl-item text-[#F26522]">
-                    <i class="fa-solid fa-basket-shopping"></i>Cart
-                    <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
-                </a>
-            </div>
+                    <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
+                    <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
+                    <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
+                    <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
+                    <a href="cart.html" class="utl-item text-[#F26522]">
+                        <i class="fa-solid fa-basket-shopping"></i>Cart
+                        <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
+                    </a>
+                </div>
                 
             </header>
-
-        <nav class="menu-ribbon">
-            <ul class="menu-container">
-                <li><a href="index.html" class="menu-link">Home</a></li>
-                <li><a href="products.html" class="menu-link">Product</a></li>
-                <li><a href="about.html" class="menu-link">About</a></li>
-                <li><a href="contact.html" class="menu-link">Contact us</a></li>
-            </ul>
-        </nav>
+            <nav class="menu-ribbon">
+                <ul class="menu-container">
+                    <li><a href="index.html" class="menu-link text-[15px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link  text-[15px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link  text-[15px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link text-[15px]">Contact us</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
     <!-- PRODUCT MAIN SECTION -->
@@ -104,11 +105,11 @@
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="grid grid-cols-2 gap-3 mb-4">
-                        <button onclick="addToCart()" class="w-full bg-[#F26522] hover:bg-[#d8551b] text-white text-xs font-bold py-3 rounded shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                    <div class="grid grid-row-2 gap-3 mb-4">
+                        <button onclick="addToCart()" class=" w-60 bg-[#F26522] hover:bg-[#d8551b] text-white text-xs font-bold py-3 rounded shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-cart-shopping"></i> ADD TO CART
                         </button>
-                        <button onclick="buyNow()" class="w-full bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold py-3 rounded shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                        <button onclick="buyNow()" class="w-60 bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold py-3 rounded shadow-sm transition-colors flex items-center justify-center gap-2 cursor-pointer">
                             <i class="fa-solid fa-bag-shopping"></i> BUY NOW
                         </button>
                     </div>
@@ -259,14 +260,14 @@
                 <a href="#" class="font-['Playfair_Display'] text-[30px] font-bold tracking-wider text-neutral-900">SCENT<span class="text-[#F26522]">.</span></a>
                 <p class="text-[16px] text-justify text-neutral-500 mt-2 mb-3 leading-relaxed max-w-sm">Scent Perfume Atelier is a premium e-commerce platform dedicated to safe, pure and authentic French luxury perfumes & premium Oud blends.</p>
                 <div class="space-y-1.5 text-[16px] text-neutral-600 mb-3.5">
-                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-[#F26522] w-3.5"></i> Rampura, Dhaka, Bangladesh</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-[#F26522] w-3.5"></i> Nikunjo 2, Dhaka, Bangladesh</p>
                     <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-[#F26522] w-3.5"></i> +8809642922922</p>
                 </div>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-2">
-                    <a href="#" class="text-[18px] w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="text-[18px] w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="text-[18px] w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class=" w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class=" w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class=" w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             
