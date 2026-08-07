@@ -11,8 +11,8 @@
 </head>
 <body class="bg-neutral-50 font-['Inter'] text-neutral-800">
 
-    <main class="max-w-[1280px] mx-auto px-4 py-8">
-        <div class="custom-navbar-wrapper mb-8">
+    <!-- MAIN CONTAINER -->
+   <div class="custom-navbar-wrapper mb-8">
             <header class="top-header">
                 <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
                 <div class="nav-search-wrapper">
@@ -24,7 +24,7 @@
                 <div class="header-utls">
                      <div class="header-utls">
             <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
                 <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
                     <option value="en">English</option>
@@ -35,7 +35,7 @@
                     <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
                     <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
                     <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522]">
+                    <a href="cart.html" class="utl-item">
                         <i class="fa-solid fa-basket-shopping"></i>Cart
                         <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
                     </a>
@@ -44,19 +44,18 @@
             </header>
             <nav class="menu-ribbon">
                 <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link">Home</a></li>
-                    <li><a href="products.html" class="menu-link">Product</a></li>
-                    <li><a href="about.html" class="menu-link">About</a></li>
-                    <li><a href="contact.html" class="menu-link">Contact us</a></li>
+                    <li><a href="index.html" class="menu-link font-bold text-[25px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link font-bold text-[25px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link font-bold  text-[25px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link font-bold text-[25px]">Contact us</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
-
         <!-- Page Header -->
+         <main class="max-w-[1280px] mx-auto px-4 py-8">
         <div class="mb-8 border-b pb-4">
             <h2 id="category-title" class="text-2xl font-['Playfair_Display'] font-bold text-neutral-900">Premium Oud</h2>
-            <p class="text-xs text-neutral-500 mt-1">Authentic Arabic oud extracts and fragrances</p>
+            <p class="text-lg text-neutral-500 mt-1">Authentic Arabic oud extracts and fragrances</p>
         </div>
 
         <!-- Products Grid (ডাইনামিক প্রোডাক্ট রেন্ডার হওয়ার জায়গা) -->
@@ -96,9 +95,9 @@
                 </div>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-2">
-                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://x.com/home" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             

@@ -16,10 +16,10 @@
     <!-- External CSS Link -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#faf8f5] font-['Plus_Jakarta_Sans',sans-serif] text-neutral-800">
+<body class="bg-neutral-50 font-['Inter'] text-neutral-800">
 
-   <!-- ================= 1. CUSTOM NAVBAR & RIBBON ================= -->
-<div class="custom-navbar-wrapper mb-8">
+    <!-- MAIN CONTAINER -->
+   <div class="custom-navbar-wrapper mb-8">
             <header class="top-header">
                 <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
                 <div class="nav-search-wrapper">
@@ -31,7 +31,7 @@
                 <div class="header-utls">
                      <div class="header-utls">
             <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
                 <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
                     <option value="en">English</option>
@@ -42,7 +42,7 @@
                     <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
                     <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
                     <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522]">
+                    <a href="cart.html" class="utl-item">
                         <i class="fa-solid fa-basket-shopping"></i>Cart
                         <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
                     </a>
@@ -51,14 +51,13 @@
             </header>
             <nav class="menu-ribbon">
                 <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link text-[#F26522] text-[15px]">Home</a></li>
-                    <li><a href="products.html" class="menu-link  text-[15px]">All~Product</a></li>
-                    <li><a href="about.html" class="menu-link  text-[15px]">About</a></li>
-                    <li><a href="contact.html" class="menu-link text-[15px]">Contact us</a></li>
+                    <li><a href="index.html" class="menu-link font-bold text-[25px] text-[#F26522]">Home</a></li>
+                    <li><a href="products.html" class="menu-link font-bold text-[25px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link font-bold  text-[25px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link font-bold text-[25px]">Contact us</a></li>
                 </ul>
             </nav>
         </div>
-
    <!-- ================= MAIN BODY CONTENT ================= -->
 <main class="w-full mx-auto px-0 mt-3">
 
@@ -98,7 +97,7 @@
        <!-- 3. FEATURED ROUND CATEGORIES -->
 <section class="mt-10 px-4 md:px-8">
     <div class="text-center mb-6">
-        <h3 class="text-base font-semibold text-neutral-800 tracking-wide relative inline-block after:content-[''] after:w-12 after:h-[2px] after:bg-[#2596be] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2">Featured Categories</h3>
+        <h3 class="text-[20px] font-semibold text-neutral-800 tracking-wide relative inline-block after:content-[''] after:w-12 after:h-[2px] after:bg-[#2596be] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2">Featured Categories</h3>
     </div>
     <div class="flex gap-4 overflow-x-auto py-2 justify-between no-scrollbar">
         
@@ -107,7 +106,7 @@
             <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
                 <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Eau De Parfum">
             </div>
-            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Eau De Parfum</span>
+            <span class="text-lg font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Eau De Parfum</span>
         </a>
 
         <!-- Premium Oud -->
@@ -115,7 +114,7 @@
             <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
                 <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Premium Oud">
             </div>
-            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Premium Oud</span>
+            <span class="text-lg font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Premium Oud</span>
         </a>
 
         <!-- Premium Attar -->
@@ -123,7 +122,7 @@
             <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
                 <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Premium Attar">
             </div>
-            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Premium Attar</span>
+            <span class="text-lg font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Premium Attar</span>
         </a>
 
         <!-- Gift Sets -->
@@ -131,7 +130,7 @@
             <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
                 <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Gift Sets">
             </div>
-            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Gift Sets</span>
+            <span class="text-lg font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Gift Sets</span>
         </a>
 
         <!-- Men's Luxury -->
@@ -139,7 +138,7 @@
             <div class="w-24 h-24 md:w-28 md:h-28 bg-white border-2 border-neutral-200 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:border-[#2596be] group-hover:scale-105 transition-all">
                 <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="Men's Luxury">
             </div>
-            <span class="text-xs font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Men's Luxury</span>
+            <span class="text-lg font-medium text-neutral-700 mt-2 group-hover:text-[#2596be] transition-colors">Men's Luxury</span>
         </a>
 
     </div>
@@ -148,8 +147,8 @@
 <!-- 4. SECTION 1: 4-COLUMN PRODUCT GRID -->
 <section class="mt-12 px-4 md:px-8">
     <div class="flex justify-between items-center mb-4 border-b border-neutral-200 pb-2">
-        <h3 class="text-sm md:text-base font-bold text-neutral-800 tracking-wide uppercase">Premium Combos</h3>
-        <a href="#" class="text-xs text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+        <h3 class="text-[20px] font-bold text-neutral-800 tracking-wide">Premium Combos</h3>
+        <a href="#" class="text-[15px] text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
     </div>
 
     <!-- ডাইনামিক প্রোডাক্ট লোড হওয়ার জন্য সঠিক আইডিযুক্ত গ্রিড কন্টেইনার -->
@@ -177,8 +176,8 @@
 <!-- 6. SECTION 2: NEXT CATEGORY PRODUCT GRID -->
 <section class="mt-8 px-4 md:px-8">
     <div class="flex justify-between items-center mb-4 border-b border-neutral-200 pb-2">
-        <h3 class="text-sm md:text-base font-bold text-neutral-800 tracking-wide uppercase">Signature Attar & Oils</h3>
-        <a href="products.html?category=signature-attar" class="text-xs text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+        <h3 class="text-[20px] font-bold text-neutral-800 tracking-wide">Signature Attar & Oils</h3>
+        <a href="products.html?category=signature-attar" class="text-[15px] text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
     </div>
 
     <!-- ডাইনামিক প্রোডাক্ট লোড হওয়ার জন্য সঠিক আইডিযুক্ত গ্রিড কন্টেইনার -->
@@ -190,8 +189,8 @@
 <!-- মাঝখানের নতুন সেকশন হেডার (ফাঁকা জায়গা দূর করার জন্য) -->
 <section class="mt-10 px-4 md:px-8">
     <div class="flex justify-between items-center mb-4 border-b border-neutral-200 pb-2">
-        <h3 class="text-sm md:text-base font-bold text-neutral-800 tracking-wide uppercase">All Products</h3>
-        <a href="products.html" class="text-xs text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+        <h3 class="text-[20px] font-bold text-neutral-800 tracking-wide">All Products</h3>
+        <a href="products.html" class="text-[15px] text-[#2596be] hover:underline flex items-center gap-1">View All <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
     </div>
 
     <!-- হোমপেজের প্রোডাক্ট গ্রিড ডিভটিতে id="product-grid" যুক্ত করতে হবে -->
@@ -217,8 +216,8 @@
                 <i class="fa-solid fa-box text-lg"></i>
             </div>
             <div>
-                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">1/2 Days Delivery</h4>
-                <p class="text-[11px] text-neutral-500 mt-0.5">fastest delivery</p>
+                <h4 class="text-lg font-bold text-neutral-800 tracking-wide">1/2 Days Delivery</h4>
+                <p class="text-[18px] text-neutral-500 mt-0.5">fastest delivery</p>
             </div>
         </div>
 
@@ -228,8 +227,8 @@
                 <i class="fa-solid fa-award text-lg"></i>
             </div>
             <div>
-                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">Authorized Product</h4>
-                <p class="text-[11px] text-neutral-500 mt-0.5">within 30 days for an exchange</p>
+                <h4 class="text-lg font-bold text-neutral-800 tracking-wide">Authorized Product</h4>
+                <p class="text-[18px] text-neutral-500 mt-0.5">exchange within 30 days</p>
             </div>
         </div>
 
@@ -239,8 +238,8 @@
                 <i class="fa-solid fa-headset text-lg"></i>
             </div>
             <div>
-                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">Customer Service Support</h4>
-                <p class="text-[11px] text-neutral-500 mt-0.5">8am to 10pm</p>
+                <h4 class="text-lg font-bold text-neutral-800 tracking-wide">Customer Support</h4>
+                <p class="text-[18px] text-neutral-500 mt-0.5">8am to 10pm</p>
             </div>
         </div>
 
@@ -250,8 +249,8 @@
                 <i class="fa-solid fa-credit-card text-lg"></i>
             </div>
             <div>
-                <h4 class="text-xs font-bold text-neutral-800 tracking-wide">Flexible Payments</h4>
-                <p class="text-[11px] text-neutral-500 mt-0.5">pay with multiple credit cards</p>
+                <h4 class="text-lg font-bold text-neutral-800 tracking-wide">Flexible Payments</h4>
+                <p class="text-[18px] text-neutral-500 mt-0.5">pay with multiple cards</p>
             </div>
         </div>
 
@@ -275,9 +274,9 @@
                 </div>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-2">
-                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://x.com/home" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             

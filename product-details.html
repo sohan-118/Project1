@@ -28,7 +28,7 @@
                 <div class="header-utls">
                      <div class="header-utls">
             <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-sm bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
                 <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
                     <option value="en">English</option>
@@ -39,7 +39,7 @@
                     <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
                     <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
                     <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522]">
+                    <a href="cart.html" class="utl-item">
                         <i class="fa-solid fa-basket-shopping"></i>Cart
                         <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
                     </a>
@@ -48,10 +48,10 @@
             </header>
             <nav class="menu-ribbon">
                 <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link text-[15px]">Home</a></li>
-                    <li><a href="products.html" class="menu-link  text-[15px]">All~Product</a></li>
-                    <li><a href="about.html" class="menu-link  text-[15px]">About</a></li>
-                    <li><a href="contact.html" class="menu-link text-[15px]">Contact us</a></li>
+                    <li><a href="index.html" class="menu-link text-[25px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link  text-[25px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link  text-[25px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link text-[25px]">Contact us</a></li>
                 </ul>
             </nav>
         </div>
@@ -85,21 +85,21 @@
             <!-- Right: Product Info & Actions -->
             <div class="flex flex-col justify-between">
                 <div>
-                    <h1 id="product-title" class="text-xl md:text-2xl font-bold text-neutral-900 mb-3">Loading...</h1>
+                    <h1 id="product-title" class="text-[15px] md:text-2xl font-bold text-neutral-900 mb-3">Loading...</h1>
                     
                     <!-- Price -->
                     <div class="flex items-center gap-3 mb-4">
-                        <span id="product-price" class="text-xl font-bold text-[#F26522]">৳০.০০</span>
-                        <span id="product-old-price" class="text-sm text-neutral-400 line-through">৳০.০০</span>
-                        <span id="price-save-badge" class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded" style="display: none;">Save 0%</span>
+                        <span id="product-price" class="text-2xl font-bold text-[#F26522]">৳০.০০</span>
+                        <span id="product-old-price" class=" font-bold text-lg text-neutral-400 line-through">৳০.০০</span>
+                        <span id="price-save-badge" class="bg-emerald-100 text-emerald-700 text-[12px] font-bold px-2 py-0.5 rounded" style="display: none;">Save 0%</span>
                     </div>
 
                     <!-- Quantity Selector -->
                     <div class="flex items-center gap-4 mb-5">
-                        <span class="text-xs font-semibold text-neutral-600">Quantity:</span>
+                        <span class="text-xl font-semibold text-neutral-600">Quantity:</span>
                         <div class="flex items-center border border-neutral-300 rounded overflow-hidden">
                             <button onclick="decreaseQty()" class="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-600 text-sm font-bold transition-colors cursor-pointer">-</button>
-                            <input id="quantity-input" type="text" value="1" class="w-10 text-center text-xs font-semibold focus:outline-none" readonly>
+                            <input id="quantity-input" type="text" value="1" class="w-10 text-center text-xl font-semibold focus:outline-none" readonly>
                             <button onclick="increaseQty()" class="px-3 py-1 bg-neutral-100 hover:bg-neutral-200 text-neutral-600 text-sm font-bold transition-colors cursor-pointer">+</button>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                     </div>
 
                     <!-- Brand info -->
-                    <div class="text-xs text-neutral-500 pt-1">
+                    <div class="text-xl text-neutral-500 pt-1">
                         Brand: <span id="product-brand" class="text-neutral-800 font-semibold">Honeyraj</span>
                     </div>
                 </div>
@@ -126,15 +126,15 @@
         <!-- PRODUCT DETAILS & REVIEWS TABS SECTION -->
         <div class="mt-8 bg-white border border-neutral-200 rounded-lg p-6 shadow-sm">
             <div class="flex border-b border-neutral-200 mb-6 gap-6">
-                <button onclick="switchTab('description')" id="tab-btn-description" class="pb-3 text-xs md:text-sm font-bold text-[#F26522] border-b-2 border-[#F26522] cursor-pointer">Description</button>
-                <button onclick="switchTab('reviews')" id="tab-btn-reviews" class="pb-3 text-xs md:text-sm font-semibold text-neutral-500 hover:text-neutral-800 cursor-pointer">Customer Reviews <span id="tab-review-count">(0)</span></button>
+                <button onclick="switchTab('description')" id="tab-btn-description" class="pb-3 text-xl md:text-xl font-bold text-[#F26522] border-b-2 border-[#F26522] cursor-pointer">Description</button>
+                <button onclick="switchTab('reviews')" id="tab-btn-reviews" class="pb-3 text-xl md:text-xl font-semibold text-neutral-500 hover:text-neutral-800 cursor-pointer">Customer Reviews <span id="tab-review-count">(0)</span></button>
             </div>
 
             <!-- Description Tab Content (প্রোডাক্ট ডিটেইলস, রেটিং সামারি এবং রিভিউ সাবমিট ফর্ম) -->
-<div id="tab-content-description" class="text-xs md:text-sm text-neutral-600 leading-relaxed space-y-6">
+<div id="tab-content-description" class="text-lg md:text-lg text-neutral-600 leading-relaxed space-y-6">
     <div>
-        <h3 class="font-bold text-neutral-800 text-base mb-2">Product Details</h3>
-        <p id="product-description">Product description will be displayed here.</p>
+        <h3 class="font-bold text-neutral-800 text-lg mb-2">Product Details</h3>
+        <p id="product-description" class=" text-[16px]">Product description will be displayed here.</p>
     </div>
 
     <!-- Rating Summary & Submit Form Grid -->
@@ -145,26 +145,26 @@
             <div class="flex items-center gap-4">
                 <div id="avg-rating" class="text-3xl font-bold text-neutral-900">0.0</div>
                 <div>
-                    <div id="rating-stars-container" class="text-amber-400 text-sm flex gap-0.5">
+                    <div id="rating-stars-container" class="text-amber-400 text-lg flex gap-0.5">
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                         <i class="fa-regular fa-star"></i>
                     </div>
-                    <div id="total-reviews-count" class="text-[11px] text-neutral-500 mt-0.5">(0 Reviews)</div>
+                    <div id="total-reviews-count" class="text-[16px] text-neutral-500 mt-0.5">(0 Reviews)</div>
                 </div>
             </div>
 
-            <div id="recommendation-text" class="text-[11px] text-neutral-600">
+            <div id="recommendation-text" class="text-[16px] text-neutral-600">
                 0.00% Recommended (0 of 0)
             </div>
 
             <!-- Rating Breakdown Bars -->
-            <div class="space-y-2 max-w-sm text-xs">
+            <div class="space-y-2 max-w-xs text-xl">
                 <!-- 5 Star -->
                 <div class="flex items-center gap-2">
-                    <span class="w-12 text-neutral-600">5 Star</span>
+                    <span class="w-14 text-neutral-600">5 Star</span>
                     <div class="flex-1 h-2 bg-neutral-100 rounded-full overflow-hidden">
                         <div id="bar-star-5" class="bg-amber-400 h-full w-[0%]" style="width: 0%;"></div>
                     </div>
@@ -172,7 +172,7 @@
                 </div>
                 <!-- 4 Star -->
                 <div class="flex items-center gap-2">
-                    <span class="w-12 text-neutral-600">4 Star</span>
+                    <span class="w-14 text-neutral-600">4 Star</span>
                     <div class="flex-1 h-2 bg-neutral-100 rounded-full overflow-hidden">
                         <div id="bar-star-4" class="bg-amber-400 h-full w-[0%]" style="width: 0%;"></div>
                     </div>
@@ -180,7 +180,7 @@
                 </div>
                 <!-- 3 Star -->
                 <div class="flex items-center gap-2">
-                    <span class="w-12 text-neutral-600">3 Star</span>
+                    <span class="w-14 text-neutral-600">3 Star</span>
                     <div class="flex-1 h-2 bg-neutral-100 rounded-full overflow-hidden">
                         <div id="bar-star-3" class="bg-amber-400 h-full w-[0%]" style="width: 0%;"></div>
                     </div>
@@ -188,7 +188,7 @@
                 </div>
                 <!-- 2 Star -->
                 <div class="flex items-center gap-2">
-                    <span class="w-12 text-neutral-600">2 Star</span>
+                    <span class="w-14 text-neutral-600">2 Star</span>
                     <div class="flex-1 h-2 bg-neutral-100 rounded-full overflow-hidden">
                         <div id="bar-star-2" class="bg-amber-400 h-full w-[0%]" style="width: 0%;"></div>
                     </div>
@@ -196,7 +196,7 @@
                 </div>
                 <!-- 1 Star -->
                 <div class="flex items-center gap-2">
-                    <span class="w-12 text-neutral-600">1 Star</span>
+                    <span class="w-14 text-neutral-600">1 Star</span>
                     <div class="flex-1 h-2 bg-neutral-100 rounded-full overflow-hidden">
                         <div id="bar-star-1" class="bg-amber-400 h-full w-[0%]" style="width: 0%;"></div>
                     </div>
@@ -207,16 +207,16 @@
 
         <!-- Right: Submit Your Review Form -->
         <div>
-            <h3 class="text-sm font-bold text-neutral-800 mb-2 uppercase tracking-wide">Submit Your Review</h3>
+            <h3 class="text-lg font-bold text-neutral-800 mb-2 uppercase tracking-wide">Submit Your Review</h3>
             <form class="space-y-4" onsubmit="submitProductReview(currentProduct?.id || urlParams.get('id'), event); return false;">
-                <p class="text-[11px] text-neutral-500">Your email address will not be published. Required fields are marked *</p>
+                <p class="text-[18px] text-neutral-500">Your email address will not be published. Required fields are marked *</p>
                 <div>
-                    <label class="block text-xs font-semibold text-neutral-700 mb-1">Write your opinion about the product</label>
-                    <textarea id="review-comment-input" rows="4" placeholder="Write Your Review Here..." class="w-full border border-neutral-300 rounded p-2.5 text-xs focus:outline-none focus:border-[#F26522]"></textarea>
+                    <label class="block text-lg font-semibold text-neutral-700 mb-1">Write your opinion about the product</label>
+                    <textarea id="review-comment-input" rows="4" placeholder="Write Your Review Here..." class="w-full border border-neutral-300 rounded p-2.5 text-xl focus:outline-none focus:border-[#F26522]"></textarea>
                 </div>
                 <div>
-                    <label class="block text-xs font-semibold text-neutral-700 mb-1">Your Rating:</label>
-                    <div id="star-rating-selector" class="text-amber-400 text-base cursor-pointer flex gap-1">
+                    <label class="block text-lg font-semibold text-neutral-700 mb-1">Your Rating:</label>
+                    <div id="star-rating-selector" class="text-amber-400 cursor-pointer flex gap-1 text-lg">
                         <i class="fa-regular fa-star hover:text-amber-500" data-rating="1" onclick="setReviewRating(1)"></i>
                         <i class="fa-regular fa-star hover:text-amber-500" data-rating="2" onclick="setReviewRating(2)"></i>
                         <i class="fa-regular fa-star hover:text-amber-500" data-rating="3" onclick="setReviewRating(3)"></i>
@@ -224,7 +224,7 @@
                         <i class="fa-regular fa-star hover:text-amber-500" data-rating="5" onclick="setReviewRating(5)"></i>
                     </div>
                 </div>
-                <button type="submit" class="bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold px-6 py-2.5 rounded transition-colors cursor-pointer">Submit Review</button>
+                <button type="submit" class="bg-neutral-900 hover:bg-neutral-800 text-white text-lg font-bold px-2 py-1 rounded transition-colors cursor-pointer">Submit Review</button>
             </form>
         </div>
 
@@ -233,7 +233,7 @@
                     
             <!-- Customer Reviews Tab Content (এখানে শুধুমাত্র রিভিউ কার্ডগুলো দেখাবে) -->
             <div id="tab-content-reviews" class="hidden space-y-4">
-                <h4 class="text-xs font-bold text-neutral-800 mb-4 uppercase tracking-wide">Customer Reviews</h4>
+                <h4 class="text-lg font-bold text-neutral-800 mb-4 tracking-wide">Customer Reviews</h4>
                 <div id="customer-reviews-container" class="space-y-3 max-w-2xl">
                     <!-- ডায়নামিক রিভিউ কার্ড এখানে লোড হবে -->
                 </div>
@@ -242,7 +242,7 @@
 
         <!-- RELATED PRODUCTS SECTION WITH ADD TO CART BUTTONS -->
         <section class="mt-10">
-            <h3 class="text-base font-bold text-neutral-800 mb-4 uppercase tracking-wide">Related Products</h3>
+            <h3 class="text-xl font-bold text-neutral-800 mb-4 uppercase tracking-wide">Related Products</h3>
             <div id="related-products-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             </div>
         </section>
@@ -264,10 +264,10 @@
                     <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-[#F26522] w-3.5"></i> +8809642922922</p>
                 </div>
                 <!-- Social Icons -->
-                <div class="flex items-center gap-2">
-                    <a href="#" class=" w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class=" w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class=" w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+               <div class="flex items-center gap-2">
+                    <a href="https://www.facebook.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://x.com/home" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             
@@ -374,14 +374,14 @@
                 descContent.classList.remove('hidden');
                 reviewsContent.classList.add('hidden');
 
-                descBtn.className = "pb-3 text-xs md:text-sm font-bold text-[#F26522] border-b-2 border-[#F26522] cursor-pointer";
-                reviewsBtn.className = "pb-3 text-xs md:text-sm font-semibold text-neutral-500 hover:text-neutral-800 cursor-pointer";
+                descBtn.className = "pb-3 text-xl md:text-xl font-bold text-[#F26522] border-b-2 border-[#F26522] cursor-pointer";
+                reviewsBtn.className = "pb-3 text-xl md:text-xl font-semibold text-neutral-500 hover:text-neutral-800 cursor-pointer";
             } else if (tabName === 'reviews') {
                 descContent.classList.add('hidden');
                 reviewsContent.classList.remove('hidden');
 
-                reviewsBtn.className = "pb-3 text-xs md:text-sm font-bold text-[#F26522] border-b-2 border-[#F26522] cursor-pointer";
-                descBtn.className = "pb-3 text-xs md:text-sm font-semibold text-neutral-500 hover:text-neutral-800 cursor-pointer";
+                reviewsBtn.className = "pb-3 text-xl md:text-xl font-bold text-[#F26522] border-b-2 border-[#F26522] cursor-pointer";
+                descBtn.className = "pb-3 text-xl md:text-xl font-semibold text-neutral-500 hover:text-neutral-800 cursor-pointer";
 
                 const activeProdId = (typeof currentProduct !== 'undefined' && currentProduct?.id) || new URLSearchParams(window.location.search).get('id') || "1";
                 if (typeof renderProductReviews === 'function') {

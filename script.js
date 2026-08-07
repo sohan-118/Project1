@@ -93,14 +93,14 @@ function loadRelatedProducts(currentId, currentCategory, productsArray) {
                 <img src="${prodImg}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${product.title || product.name || ''}">
             </div>
             <div class="p-3 flex flex-col flex-grow">
-                <span class="text-[9px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">${product.brand ? product.brand : '&nbsp;'}</span>
-                <h4 class="text-xs font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">${product.title || product.name || ''}</h4>
+                <span class="text-[13px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">${product.brand ? product.brand : '&nbsp;'}</span>
+                <h4 class="text-lg font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">${product.title || product.name || ''}</h4>
                 <div class="mt-2 flex items-center justify-between mt-auto pt-2 border-t border-neutral-100">
                     <div class="flex flex-col">
-                        <span class="text-xs font-bold text-[#F26522]">${product.price || ''}</span>
-                        <span class="text-[10px] text-neutral-400 line-through min-h-[14px]">${product.oldPrice ? product.oldPrice : '&nbsp;'}</span>
-                    </div>
-                    <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');" class="bg-white border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white text-xs px-3 py-1.5 rounded transition-colors flex items-center gap-1 shadow-sm">
+                    <span class="text-lg font-bold text-[#F26522]">৳ ${product.price || ''}</span>
+                   ${Number(product.oldPrice) > Number(product.price)? `<span class="text-[17px] font-bold text-neutral-400 line-through">৳ ${product.oldPrice}</span>`: ''}
+                   </div>
+                    <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');" class="bg-white border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white text-[15px] px-3 py-1 rounded transition-colors flex items-center gap-1 shadow-sm">
                         <i class="fa-solid fa-cart-shopping"></i> Add To Cart
                     </button>
                 </div>
@@ -185,14 +185,14 @@ function renderProducts(filterCategory) {
                     <img src="${prodImg}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${product.title || ''}">
                 </div>
                 <div class="p-3 flex flex-col flex-grow">
-                    <span class="text-[9px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">${product.brand ? product.brand : '&nbsp;'}</span>
-                    <h4 class="text-xs font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">${product.title || ''}</h4>
+                    <span class="text-[13px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">${product.brand ? product.brand : '&nbsp;'}</span>
+                    <h4 class="text-lg font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">${product.title || ''}</h4>
                     <div class="mt-2 flex items-center justify-between mt-auto pt-2 border-t border-neutral-100">
-                        <div class="flex flex-col">
-                            <span class="text-xs font-bold text-[#F26522]">${product.price || ''}</span>
-                            <span class="text-[10px] text-neutral-400 line-through min-h-[14px]">${product.oldPrice ? product.oldPrice : '&nbsp;'}</span>
-                        </div>
-                        <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');" class="bg-white border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white text-xs px-3 py-1.5 rounded transition-colors flex items-center gap-1 shadow-sm">
+                    <div class="flex flex-col">
+                    <span class="text-lg font-bold text-[#F26522]">৳ ${product.price || ''}</span>
+                   ${Number(product.oldPrice) > Number(product.price)? `<span class="text-[17px] font-bold text-neutral-400 line-through">৳ ${product.oldPrice}</span>`: ''}
+                   </div>
+                        <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');" class="bg-white border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white text-[15px] px-3 py-1 rounded transition-colors flex items-center gap-1 shadow-sm">
                             <i class="fa-solid fa-cart-shopping"></i> Add To Cart
                         </button>
                     </div>
@@ -588,14 +588,14 @@ function renderHomeSectionProducts(sectionName, containerId) {
                 <img src="${prodImg}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${product.title || ''}">
             </div>
             <div class="p-3 flex flex-col flex-grow">
-                <span class="text-[9px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">${product.brand ? product.brand : '&nbsp;'}</span>
-                <h4 class="text-xs font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">${product.title || ''}</h4>
+                <span class="text-[13px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">${product.brand ? product.brand : '&nbsp;'}</span>
+                <h4 class="text-lg font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">${product.title || ''}</h4>
                 <div class="mt-2 flex items-center justify-between mt-auto pt-2 border-t border-neutral-100">
                     <div class="flex flex-col">
-                        <span class="text-xs font-bold text-[#F26522]">${product.price || ''}</span>
-                        <span class="text-[10px] text-neutral-400 line-through min-h-[14px]">${product.oldPrice ? product.oldPrice : '&nbsp;'}</span>
-                    </div>
-                    <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');" class="bg-white border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white text-xs px-3 py-1.5 rounded transition-colors flex items-center gap-1 shadow-sm">
+                    <span class="text-lg font-bold text-[#F26522]">৳ ${product.price || ''}</span>
+                   ${Number(product.oldPrice) > Number(product.price)? `<span class="text-[17px] font-bold text-neutral-400 line-through">৳ ${product.oldPrice}</span>`: ''}
+                   </div>
+                    <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');" class="bg-white border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white text-[15px] px-3 py-1 rounded transition-colors flex items-center gap-1 shadow-sm">
                         <i class="fa-solid fa-cart-shopping"></i> Add To Cart
                     </button>
                 </div>

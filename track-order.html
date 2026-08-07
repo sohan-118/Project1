@@ -11,11 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-neutral-100 font-['Inter'] text-neutral-800 antialiased selection:bg-[#F26522] selection:text-white">
+<body class="bg-neutral-50 font-['Inter'] text-neutral-800">
 
-    <main class="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        <!-- Navbar -->
-        <div class="custom-navbar-wrapper mb-8">
+    <!-- MAIN CONTAINER -->
+   <div class="custom-navbar-wrapper mb-8">
             <header class="top-header">
                 <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
                 <div class="nav-search-wrapper">
@@ -23,21 +22,22 @@
                     <button class="nav-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             
+            
                 <div class="header-utls">
                      <div class="header-utls">
             <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
                 <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                 </select>
             </div>
-                    <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
+                    <a href="track-order.html" class="utl-item text-[#F26522]"><i class="fa-regular fa-circle-question"></i>Track Order</a>
                     <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
-                    <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
+                    <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user text-[#F26522]"></i>Sign In</a>
                     <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522] relative">
+                    <a href="cart.html" class="utl-item ">
                         <i class="fa-solid fa-basket-shopping"></i>Cart
                         <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
                     </a>
@@ -46,15 +46,15 @@
             </header>
             <nav class="menu-ribbon">
                 <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link">Home</a></li>
-                    <li><a href="products.html" class="menu-link">Product</a></li>
-                    <li><a href="about.html" class="menu-link">About</a></li>
-                    <li><a href="contact.html" class="menu-link">Contact us</a></li>
+                    <li><a href="index.html" class="menu-link font-bold text-[25px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link font-bold text-[25px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link font-bold  text-[25px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link font-bold text-[25px]">Contact us</a></li>
                 </ul>
             </nav>
         </div>
-
         <!-- Track Order Form Section -->
+         <main class="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 sm:py-8"></main>
         <div class="max-w-xl mx-auto bg-white border border-neutral-200/85 rounded-2xl p-6 sm:p-8 shadow-sm my-10 transition-all hover:shadow-md">
             <div class="text-center mb-6">
                 <div class="w-12 h-12 bg-orange-50 text-[#F26522] rounded-full flex items-center justify-center mx-auto mb-3 text-lg">
@@ -99,9 +99,9 @@
                 </div>
                 <!-- Social Icons -->
                 <div class="flex items-center gap-2">
-                    <a href="#" class="text-[18px] w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="text-[18px] w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="text-[18px] w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://x.com/home" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
             

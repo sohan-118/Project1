@@ -6,14 +6,19 @@
     <title>Contact Us - SCENT</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!--Icon-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 font-sans">
+<body class="bg-neutral-50 font-['Inter'] text-neutral-800">
 
     <!-- Navbar Section (আপনার প্রজেক্টের নেভবার এখানে থাকবে) -->
-     <div class="custom-navbar-wrapper mb-8">
+     <div class="custom-navbar-wrapper">
             <header class="top-header">
                 <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
                 <div class="nav-search-wrapper">
@@ -25,7 +30,7 @@
                 <div class="header-utls">
                      <div class="header-utls">
             <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
                 <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
                     <option value="en">English</option>
@@ -36,7 +41,7 @@
                     <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
                     <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
                     <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522]">
+                    <a href="cart.html" class="utl-item">
                         <i class="fa-solid fa-basket-shopping"></i>Cart
                         <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
                     </a>
@@ -45,36 +50,37 @@
             </header>
             <nav class="menu-ribbon">
                 <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link text-[15px]">Home</a></li>
-                    <li><a href="products.html" class="menu-link  text-[15px]">All~Product</a></li>
-                    <li><a href="about.html" class="menu-link text-[15px]">About</a></li>
-                    <li><a href="contact.html" class="menu-link text-[#F26522] text-[15px]">Contact us</a></li>
+                    <li><a href="index.html" class="menu-link font-bold text-[25px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link font-bold text-[25px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link font-bold  text-[25px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link font-bold text-[25px] text-[#F26522]">Contact us</a></li>
                 </ul>
             </nav>
         </div>
 
 
     <!-- Main Contact Section -->
-    <div class="max-w-6xl mx-auto px-4 py-12">
-        <h1 class="text-3xl font-extrabold text-slate-900 mb-8">Contact Us</h1>
+    <div class="max-w-6xl mx-auto px-4 pb-12">
+        <img class=" justify-center items-center flex h-72 w-full rounded-xl" src="./images/banner/360_F.jpg" alt="jpg">
+    <!--<h1 class="text-3xl font-extrabold text-slate-900 mb-8">Contact Us</h1>-->
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Office Info Box -->
             <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-                <h2 class="text-xl font-bold text-slate-800">Our Office & Hotline</h2>
-                <div class="flex items-start gap-3 text-slate-600 text-sm">
+                <h2 class="text-2xl font-bold text-slate-800">Our Office & Hotline</h2>
+                <div class="flex items-start gap-3 text-slate-600 text-lg">
                     <i class="fa-solid fa-location-dot text-[#F26522] mt-1"></i>
                     <p>Nikunjo 2, Dhaka, Bangladesh</p>
                 </div>
-                <div class="flex items-center gap-3 text-slate-600 text-sm">
+                <div class="flex items-center gap-3 text-slate-600 text-lg">
                     <i class="fa-solid fa-phone text-[#F26522]"></i>
                     <p>+880 1234 567890</p>
                 </div>
-                <div class="flex items-center gap-3 text-slate-600 text-sm">
+                <div class="flex items-center gap-3 text-slate-600 text-lg">
                     <i class="fa-solid fa-envelope text-[#F26522]"></i>
                     <p>support@signatureattar.com</p>
                 </div>
-                <div class="flex items-center gap-3 text-slate-600 text-sm">
+                <div class="flex items-center gap-3 text-slate-600 text-lg">
                     <i class="fa-brands fa-whatsapp text-[#F26522]"></i>
                     <p>WhatsApp: +880 1234 567890</p>
                 </div>
@@ -82,20 +88,20 @@
 
             <!-- Send Message Form -->
             <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <h2 class="text-xl font-bold text-slate-800 mb-6">Send Us a Message</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mb-6">Send Us a Message</h2>
                 
                 <!-- ফর্মের মধ্যে onsubmit যোগ করা হয়েছে -->
                 <form onsubmit="handleContactSubmit(event)" class="space-y-4">
                     <div>
-                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#F26522]">
+                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-2 border border-slate-200 rounded-xl text-[17px] focus:outline-none focus:border-[#F26522]">
                     </div>
                     <div>
-                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#F26522]">
+                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-2 border border-slate-200 rounded-xl text-[17px] focus:outline-none focus:border-[#F26522]">
                     </div>
                     <div>
-                        <textarea placeholder="Your Message..." rows="4" required class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#F26522]"></textarea>
+                        <textarea placeholder="Your Message..." rows="4" required class="w-full px-4 py-2 border border-slate-200 rounded-xl text-[17px] focus:outline-none focus:border-[#F26522]"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-[#F26522] hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition text-sm">
+                    <button type="submit" class="w-full bg-[#F26522] hover:bg-orange-600 text-white font-bold py-2 rounded-xl transition text-lg">
                         Submit
                     </button>
                 </form>

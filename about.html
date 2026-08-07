@@ -9,7 +9,10 @@
     <!-- FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-neutral-100 font-['Inter'] text-neutral-800 antialiased selection:bg-[#F26522] selection:text-white">
@@ -27,7 +30,7 @@
                 <div class="header-utls">
                      <div class="header-utls">
             <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
                 <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
                     <option value="en">English</option>
@@ -38,7 +41,7 @@
                     <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
                     <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
                     <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522]">
+                    <a href="cart.html" class="utl-item">
                         <i class="fa-solid fa-basket-shopping"></i>Cart
                         <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
                     </a>
@@ -47,10 +50,10 @@
             </header>
             <nav class="menu-ribbon">
                 <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link text-[15px]">Home</a></li>
-                    <li><a href="products.html" class="menu-link  text-[15px]">All~Product</a></li>
-                    <li><a href="about.html" class="menu-link text-[#F26522] text-[15px]">About</a></li>
-                    <li><a href="contact.html" class="menu-link text-[15px]">Contact us</a></li>
+                    <li><a href="index.html" class="menu-link font-bold text-[25px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link font-bold text-[25px]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link font-bold  text-[25px] text-[#F26522]">About</a></li>
+                    <li><a href="contact.html" class="menu-link font-bold text-[25px]">Contact us</a></li>
                 </ul>
             </nav>
         </div>
@@ -59,35 +62,35 @@
     <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
         <div class="text-center mb-8">
             <h2 class="text-3xl sm:text-4xl font-['Playfair_Display'] font-bold mb-3 text-neutral-900 tracking-tight">About Us</h2>
-            <p class="text-xs sm:text-sm text-neutral-500 max-w-lg mx-auto">Discover the essence of luxury, purity, and our journey in crafting signature fragrances.</p>
+            <p class="text-xl xl:text-xl text-neutral-500 max-w-lg mx-auto">Discover the essence of luxury, purity, and our journey in crafting signature fragrances.</p>
         </div>
         
         <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-sm border border-neutral-200/85 space-y-6 leading-relaxed text-xs sm:text-sm transition-all hover:shadow-md">
             <div class="flex items-center gap-3 border-b border-neutral-100 pb-4">
-                <div class="w-10 h-10 bg-orange-50 text-[#F26522] rounded-xl flex items-center justify-center text-base shadow-2xs">
+                <div class="w-20 h-20 bg-orange-50 text-[#F26522] rounded-xl flex items-center justify-center text-6xl shadow-2xs">
                     <i class="fa-solid fa-spray-can-sparkles"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-neutral-900 text-sm sm:text-base">Signature Attar & Parfum</h3>
-                    <p class="text-[11px] text-neutral-500">Welcome to SCENT Perfume Atelier</p>
+                    <h3 class="font-bold text-neutral-900 text-2xl">Signature Attar & Parfum</h3>
+                    <p class="text-[17px] text-neutral-500">Welcome to SCENT Perfume Atelier</p>
                 </div>
             </div>
 
-            <p class="text-neutral-600">Hello! <strong>Signature Attar & Oils</strong> Welcome to SCENT Perfume Atelier. We’ve brought you a huge collection of 100% pure, premium, and long-lasting perfumes and fragrances.</p>
+            <p class="text-neutral-600 text-lg">Hello! <strong>Signature Attar & Oils</strong> Welcome to SCENT Perfume Atelier. We’ve brought you a huge collection of 100% pure, premium, and long-lasting perfumes and fragrances.</p>
             
-            <p class="text-neutral-600">Each of our fragrances is specially designed to highlight your personality and keep your day fresh. We never compromise on quality, so every product of ours reaches customers with trust.</p>
+            <p class="text-neutral-600 text-lg">Each of our fragrances is specially designed to highlight your personality and keep your day fresh. We never compromise on quality, so every product of ours reaches customers with trust.</p>
             
             <div class="bg-neutral-50/70 p-5 rounded-xl border border-neutral-200/80 space-y-3">
-                <h3 class="text-xs sm:text-sm font-bold text-neutral-900 uppercase tracking-wider flex items-center gap-2">
+                <h3 class="text-lg lg:text-lg font-bold text-neutral-900 uppercase tracking-wider flex items-center gap-2">
                     <i class="fa-solid fa-bullseye text-[#F26522]"></i> Our Vision and Mission:
                 </h3>
                 <ul class="space-y-2.5 text-neutral-600 pl-2">
-                    <li class="flex items-start gap-2.5">
-                        <i class="fa-solid fa-circle-check text-[#F26522] mt-1 text-xs"></i>
+                    <li class="flex items-start gap-2.5 text-lg">
+                        <i class="fa-solid fa-circle-check text-[#F26522] mt-1 text-lg"></i>
                         <span>To provide the highest quality, authentic perfumes and fragrances to our customers.</span>
                     </li>
-                    <li class="flex items-start gap-2.5">
-                        <i class="fa-solid fa-circle-check text-[#F26522] mt-1 text-xs"></i>
+                    <li class="flex items-start gap-2.5 text-lg">
+                        <i class="fa-solid fa-circle-check text-[#F26522] mt-1 text-lg"></i>
                         <span>To deliver the best online shopping experience with unmatched customer satisfaction.</span>
                     </li>
                 </ul>
@@ -122,10 +125,10 @@
             <div class="pt-4">
                 <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Information</h4>
                 <nav class="flex flex-col space-y-1.5 text-[11px]">
-                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">About us</a>
-                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Contact us</a>
-                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Terms & Conditions</a>
-                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-[20px] text-neutral-500 hover:text-[#F26522] transition-colors">About us</a>
+                    <a href="#" class="text-[20px] text-neutral-500 hover:text-[#F26522] transition-colors">Contact us</a>
+                    <a href="#" class="text-[20px] text-neutral-500 hover:text-[#F26522] transition-colors">Terms & Conditions</a>
+                    <a href="#" class="text-[20px] text-neutral-500 hover:text-[#F26522] transition-colors">Privacy Policy</a>
                 </nav>
             </div>
             

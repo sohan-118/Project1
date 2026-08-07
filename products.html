@@ -6,9 +6,12 @@
     <title>Categories - Premium Perfume Shop</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!--Icon-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- আপনার আলাদা করা CSS ফাইলের লিংক -->
     <link rel="stylesheet" href="style.css">
@@ -28,7 +31,7 @@
                 <div class="header-utls">
                      <div class="header-utls">
             <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-xs bg-white">
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
                 <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
                     <option value="en">English</option>
@@ -39,7 +42,7 @@
                     <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
                     <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
                     <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522]">
+                    <a href="cart.html" class="utl-item">
                         <i class="fa-solid fa-basket-shopping"></i>Cart
                         <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
                     </a>
@@ -48,10 +51,10 @@
             </header>
             <nav class="menu-ribbon">
                 <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link  text-[15px]">Home</a></li>
-                    <li><a href="products.html" class="menu-link text-[#F26522] text-[15px]">All~Product</a></li>
-                    <li><a href="about.html" class="menu-link  text-[15px]">About</a></li>
-                    <li><a href="contact.html" class="menu-link text-[15px]">Contact us</a></li>
+                    <li><a href="index.html" class="menu-link font-bold text-[25px]">Home</a></li>
+                    <li><a href="products.html" class="menu-link font-bold text-[25px] text-[#F26522]">All~Product</a></li>
+                    <li><a href="about.html" class="menu-link font-bold  text-[25px]">About</a></li>
+                    <li><a href="contact.html" class="menu-link font-bold text-[25px]">Contact us</a></li>
                 </ul>
             </nav>
         </div>
@@ -60,9 +63,7 @@
     <div class="w-full relative overflow-hidden h-[320px] md:h-[460px] shadow-sm">
         <img
             src="./images/banner/kilian_brand_page_banner.webp"
-            alt="Banner"
-            class="w-full h-full object-cover p-8"
-        >
+            alt="Banner" class="w-full h-full object-cover p-8">
     </div>
 </div>
 
@@ -71,13 +72,13 @@
             
             <!-- Product 1 (Visible) -->
             <a href="product-details.html?id=1" class="product-card cursor-pointer bg-white border border-neutral-200 rounded overflow-hidden flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group relative">
-                <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm z-10">Save 15%</span>
+                <span class="absolute top-2 left-2 bg-emerald-500 text-white text-[14px] font-bold px-1.5 py-0.5 rounded-sm z-10">Save 15%</span>
                 <div class="w-full h-44 bg-neutral-100 overflow-hidden relative shrink-0">
                     <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Product">
                 </div>
                 <div class="p-3 flex-1 flex flex-col justify-between">
                     <div>
-                        <span class="text-[10px] font-semibold text-neutral-400 tracking-wider uppercase block mb-1">HONEYRAJ</span>
+                        <span class="text-[140px] font-semibold text-neutral-400 tracking-wider uppercase block mb-1">HONEYRAJ</span>
                         <h4 class="text-xs text-neutral-800 font-semibold line-clamp-2 h-[32px] mb-3 group-hover:text-[#2596be] transition-colors">Ajwa Oud Combo Pack (Premium Box)</h4>
                     </div>
                     <div class="border-t border-neutral-100 pt-2 mt-auto flex items-end justify-between">
