@@ -16,48 +16,108 @@
     <!-- External CSS Link -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-neutral-50 font-['Inter'] text-neutral-800">
+<body class="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-neutral-50 font-['Inter'] text-neutral-800">
 
     <!-- MAIN CONTAINER -->
-   <div class="custom-navbar-wrapper mb-8">
-            <header class="top-header">
-                <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
-                <div class="nav-search-wrapper">
-                    <input type="text" placeholder="Search in..." class="nav-search-input">
-                    <button class="nav-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-            
-            
-                <div class="header-utls">
-                     <div class="header-utls">
-            <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
+   <div class="custom-navbar-wrapper mb-4 md:mb-8 w-full">
+    <header class="top-header w-full flex flex-col lg:flex-row items-center justify-between gap-4 px-4 py-4">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo shrink-0 text-2xl md:text-3xl">
+            SCENT<span>.</span>
+        </a>
+
+        <!-- Search -->
+        <div class="nav-search-wrapper w-full lg:flex-1 lg:max-w-xl order-3 lg:order-none">
+            <div class="flex w-full">
+                <input
+                    type="text"
+                    placeholder="Search in..."
+                    class="nav-search-input w-full min-w-0"
+                >
+                <button class="nav-search-btn shrink-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Header utilities -->
+        <div class="header-utls w-full lg:w-auto flex flex-wrap justify-center lg:justify-end items-center gap-3">
+
+            <!-- Language -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-sm bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
-                <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
+                <select
+                    id="languageSelect"
+                    class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700 max-w-[90px]"
+                >
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                 </select>
             </div>
-                    <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
-                    <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
-                    <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
-                    <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item">
-                        <i class="fa-solid fa-basket-shopping"></i>Cart
-                        <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
-                    </a>
-                </div>
-                
-            </header>
-            <nav class="menu-ribbon">
-                <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link font-bold text-[25px] text-[#F26522]">Home</a></li>
-                    <li><a href="products.html" class="menu-link font-bold text-[25px]">All~Product</a></li>
-                    <li><a href="about.html" class="menu-link font-bold  text-[25px]">About</a></li>
-                    <li><a href="contact.html" class="menu-link font-bold text-[25px]">Contact us</a></li>
-                </ul>
-            </nav>
+
+            <a href="track-order.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-circle-question"></i>
+                <span>Track Order</span>
+            </a>
+
+            <a href="login.html" id="user-auth-link" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-user"></i>
+                <span>Sign In</span>
+            </a>
+
+            <a href="wishlist.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="utl-item relative whitespace-nowrap">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span>Cart</span>
+
+                <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">
+                    1
+                </span>
+            </a>
+
         </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="menu-ribbon w-full">
+        <ul class="menu-container flex items-center justify-center gap-2 sm:gap-4 md:gap-8 px-2 w-full overflow-hidden">
+
+            <li class=" shrink-0">
+                <a href="index.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px] text-[#F26522]">
+                    Home
+                </a>
+            </li>
+
+            <li class=" shrink-0">
+                <a href="products.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    All~Product
+                </a>
+            </li>
+
+            <li class="shrink-0">
+                <a href="about.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    About
+                </a>
+            </li>
+
+            <li class="shrink-0">
+        <a href="contact.html"
+           class="menu-link font-bold text-sm sm:text-lg md:text-[25px] whitespace-nowrap">
+            Contact us
+        </a>
+    </li>
+
+        </ul>
+    </nav>
+</div>
    <!-- ================= MAIN BODY CONTENT ================= -->
 <main class="w-full mx-auto px-0 mt-3">
 
@@ -99,7 +159,7 @@
     <div class="text-center mb-6">
         <h3 class="text-[20px] font-semibold text-neutral-800 tracking-wide relative inline-block after:content-[''] after:w-12 after:h-[2px] after:bg-[#2596be] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2">Featured Categories</h3>
     </div>
-    <div class="flex gap-4 overflow-x-auto py-2 justify-between no-scrollbar">
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 overflow-x-auto py-2 justify-between no-scrollbar">
         
         <!-- Eau De Parfum -->
         <a href="parfum.html" class="flex flex-col items-center min-w-[90px] flex-1 group cursor-pointer">
@@ -152,7 +212,7 @@
     </div>
 
     <!-- ডাইনামিক প্রোডাক্ট লোড হওয়ার জন্য সঠিক আইডিযুক্ত গ্রিড কন্টেইনার -->
-    <div id="premium-combos-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 items-stretch">
+    <div id="premium-combos-grid" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 items-stretch">
         <!-- জাভাস্ক্রিপ্ট থেকে এই অংশে স্বয়ংক্রিয়ভাবে প্রোডাক্ট কার্ডগুলো লোড হবে -->
     </div>
 </section>
@@ -181,7 +241,7 @@
     </div>
 
     <!-- ডাইনামিক প্রোডাক্ট লোড হওয়ার জন্য সঠিক আইডিযুক্ত গ্রিড কন্টেইনার -->
-    <div id="signature-attar-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 items-stretch">
+    <div id="signature-attar-grid" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 items-stretch">
         <!-- জাভাস্ক্রিপ্ট থেকে এই অংশে স্বয়ংক্রিয়ভাবে অ্যাটার ও অয়েলের প্রোডাক্টগুলো লোড হবে -->
     </div>
 </section>
@@ -194,7 +254,7 @@
     </div>
 
     <!-- হোমপেজের প্রোডাক্ট গ্রিড ডিভটিতে id="product-grid" যুক্ত করতে হবে -->
-    <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
         <!-- এখানে ডাইনামিক প্রোডাক্টগুলো চলে আসবে -->
     </div>
 </section>

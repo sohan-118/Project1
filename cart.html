@@ -4,56 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - Premium Perfume Shop</title>
-    <!-- Tailwind CSS CDN -->
+     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome CDN -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Link -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-neutral-50 font-['Inter'] text-neutral-800">
+<body class="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-neutral-50 font-['Inter'] text-neutral-800">
 
     <!-- MAIN CONTAINER -->
-   <div class="custom-navbar-wrapper mb-8">
-            <header class="top-header">
-                <a href="index.html" class="nav-logo">SCENT<span>.</span></a>
-                <div class="nav-search-wrapper">
-                    <input type="text" placeholder="Search in..." class="nav-search-input">
-                    <button class="nav-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-            
-            
-                <div class="header-utls">
-                     <div class="header-utls">
-            <!-- Language Switcher Added Here -->
-            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-[14px] bg-white">
+   <div class="custom-navbar-wrapper mb-4 md:mb-8 w-full">
+    <header class="top-header w-full flex flex-col lg:flex-row items-center justify-between gap-4 px-4 py-4">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo shrink-0 text-2xl md:text-3xl">
+            SCENT<span>.</span>
+        </a>
+
+        <!-- Search -->
+        <div class="nav-search-wrapper w-full lg:flex-1 lg:max-w-xl order-3 lg:order-none">
+            <div class="flex w-full">
+                <input
+                    type="text"
+                    placeholder="Search in..."
+                    class="nav-search-input w-full min-w-0"
+                >
+                <button class="nav-search-btn shrink-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Header utilities -->
+        <div class="header-utls w-full lg:w-auto flex flex-wrap justify-center lg:justify-end items-center gap-3">
+
+            <!-- Language -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-sm bg-white">
                 <i class="fa-solid fa-globe text-[#F26522]"></i>
-                <select id="languageSelect" class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700">
+                <select
+                    id="languageSelect"
+                    class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700 max-w-[90px]"
+                >
                     <option value="en">English</option>
                     <option value="bn">বাংলা</option>
                 </select>
             </div>
-                    <a href="track-order.html" class="utl-item"><i class="fa-regular fa-circle-question"></i>Track Order</a>
-                    <!-- এখানে id="user-auth-link" যুক্ত করা হয়েছে -->
-                    <a href="login.html" id="user-auth-link" class="utl-item"><i class="fa-regular fa-user"></i>Sign In</a>
-                    <a href="wishlist.html" class="utl-item"><i class="fa-regular fa-heart"></i>Wishlist</a>
-                    <a href="cart.html" class="utl-item text-[#F26522]">
-                        <i class="fa-solid fa-basket-shopping"></i>Cart
-                        <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">1</span>
-                    </a>
-                </div>
-                
-            </header>
-            <nav class="menu-ribbon">
-                <ul class="menu-container">
-                    <li><a href="index.html" class="menu-link font-bold text-[25px] text-[#F26522]">Home</a></li>
-                    <li><a href="products.html" class="menu-link font-bold text-[25px]">All~Product</a></li>
-                    <li><a href="about.html" class="menu-link font-bold  text-[25px]">About</a></li>
-                    <li><a href="contact.html" class="menu-link font-bold text-[25px]">Contact us</a></li>
-                </ul>
-            </nav>
-        </div>
 
+            <a href="track-order.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-circle-question"></i>
+                <span>Track Order</span>
+            </a>
+
+            <a href="login.html" id="user-auth-link" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-user"></i>
+                <span>Sign In</span>
+            </a>
+
+            <a href="wishlist.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="utl-item relative whitespace-nowrap">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span>Cart</span>
+
+                <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">
+                    1
+                </span>
+            </a>
+
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="menu-ribbon w-full">
+        <ul class="menu-container flex items-center justify-center gap-2 sm:gap-4 md:gap-8 px-2 w-full overflow-hidden">
+
+            <li class=" shrink-0">
+                <a href="index.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    Home
+                </a>
+            </li>
+
+            <li class=" shrink-0">
+                <a href="products.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    All~Product
+                </a>
+            </li>
+
+            <li class="shrink-0">
+                <a href="about.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    About
+                </a>
+            </li>
+
+            <li class="shrink-0">
+        <a href="contact.html"
+           class="menu-link font-bold text-sm sm:text-lg md:text-[25px] whitespace-nowrap">
+            Contact us
+        </a>
+    </li>
+
+        </ul>
+    </nav>
+</div>
         <!-- Cart Content -->
         <main class="max-w-[1280px] mx-auto px-4 sm:px-6">
             <h2 class="text-2xl font-['Playfair_Display'] font-bold mb-6 text-neutral-900 border-b pb-3">Your Shopping Cart</h2>
