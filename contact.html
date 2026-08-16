@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SCENT</title>
+     <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-neutral-50 font-['Inter'] text-neutral-800">
+
+    <!-- MAIN CONTAINER -->
+   <div class="custom-navbar-wrapper mb-4 md:mb-8 w-full">
+    <header class="top-header w-full flex flex-col lg:flex-row items-center justify-between gap-4 px-4 py-4">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo shrink-0 text-2xl md:text-3xl">
+            SCENT<span>.</span>
+        </a>
+
+        <!-- Search -->
+        <div class="nav-search-wrapper w-full lg:flex-1 lg:max-w-xl order-3 lg:order-none">
+            <div class="flex w-full">
+                <input
+                    type="text"
+                    placeholder="Search in..."
+                    class="nav-search-input w-full min-w-0"
+                >
+                <button class="nav-search-btn shrink-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Header utilities -->
+        <div class="header-utls w-full lg:w-auto flex flex-wrap justify-center lg:justify-end items-center gap-3">
+
+            <!-- Language -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-sm bg-white">
+                <i class="fa-solid fa-globe text-[#F26522]"></i>
+                <select
+                    id="languageSelect"
+                    class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700 max-w-[90px]"
+                >
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                </select>
+            </div>
+
+            <a href="track-order.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-circle-question"></i>
+                <span>Track Order</span>
+            </a>
+
+            <a href="login.html" id="user-auth-link" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-user"></i>
+                <span>Sign In</span>
+            </a>
+
+            <a href="wishlist.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="utl-item relative whitespace-nowrap">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span>Cart</span>
+
+                <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">
+                    1
+                </span>
+            </a>
+
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="menu-ribbon w-full">
+        <ul class="menu-container flex items-center justify-center gap-2 sm:gap-4 md:gap-8 px-2 w-full overflow-hidden">
+
+            <li class=" shrink-0">
+                <a href="index.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    Home
+                </a>
+            </li>
+
+            <li class=" shrink-0">
+                <a href="products.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    All~Product
+                </a>
+            </li>
+
+            <li class="shrink-0">
+                <a href="about.html"class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    About
+                </a>
+            </li>
+
+            <li class="shrink-0">
+        <a href="contact.html"
+           class="menu-link font-bold text-sm sm:text-lg md:text-[25px] text-[#F26522] whitespace-nowrap">
+            Contact us
+        </a>
+    </li>
+
+        </ul>
+    </nav>
+</div>
+    <!-- Main Contact Section -->
+    <div class="max-w-6xl mx-auto px-4 pb-12">
+        <img class=" justify-center items-center flex h-72 w-full rounded-xl" src="./images/banner/360_F.jpg" alt="jpg">
+    <!--<h1 class="text-3xl font-extrabold text-slate-900 mb-8">Contact Us</h1>-->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Office Info Box -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <h2 class="text-2xl font-bold text-slate-800">Our Office & Hotline</h2>
+                <div class="flex items-start gap-3 text-slate-600 text-lg">
+                    <i class="fa-solid fa-location-dot text-[#F26522] mt-1"></i>
+                    <p>Nikunjo 2, Dhaka, Bangladesh</p>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 text-lg">
+                    <i class="fa-solid fa-phone text-[#F26522]"></i>
+                    <p>+880 1234 567890</p>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 text-lg">
+                    <i class="fa-solid fa-envelope text-[#F26522]"></i>
+                    <p>support@signatureattar.com</p>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 text-lg">
+                    <i class="fa-brands fa-whatsapp text-[#F26522]"></i>
+                    <p>WhatsApp: +880 1234 567890</p>
+                </div>
+            </div>
+
+            <!-- Send Message Form -->
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6">Send Us a Message</h2>
+                
+                <!-- ফর্মের মধ্যে onsubmit যোগ করা হয়েছে -->
+                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="Your Name" required class="w-full px-4 py-2 border border-slate-200 rounded-xl text-[17px] focus:outline-none focus:border-[#F26522]">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="Your Email" required class="w-full px-4 py-2 border border-slate-200 rounded-xl text-[17px] focus:outline-none focus:border-[#F26522]">
+                    </div>
+                    <div>
+                        <textarea placeholder="Your Message..." rows="4" required class="w-full px-4 py-2 border border-slate-200 rounded-xl text-[17px] focus:outline-none focus:border-[#F26522]"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[#F26522] hover:bg-orange-600 text-white font-bold py-2 rounded-xl transition text-lg">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ১. ফায়ারবেস সিডিএন লাইব্রেরি (Compat ভার্সন) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <!-- ৩. আপনার ডেটাবেজ ফাইল -->
+    <script src="db.js"></script>
+
+    <!-- ৪. আপনার মূল লজিক ও কন্টাক্ট ফর্ম সাবমিট হ্যান্ডেলার ফাইল -->
+    <script src="script.js"></script>
+
+    <!-- কন্টাক্ট ফর্ম ডাটা ফায়ারবেসে সেভ করার স্ক্রিপ্ট -->
+    <script>
+        // যদি আপনার মূল logic কোড (script.js)-এ এই ফাংশনটি আগে থেকেই না থাকে, তবে এটি ব্যবহার করতে পারেন:
+        window.handleContactSubmit = async function(e) {
+            e.preventDefault();
+
+            const nameInput = e.target.querySelector('input[type="text"]');
+            const emailInput = e.target.querySelector('input[type="email"]');
+            const messageInput = e.target.querySelector('textarea');
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+
+            const name = nameInput ? nameInput.value.trim() : '';
+            const email = emailInput ? emailInput.value.trim() : '';
+            const message = messageInput ? messageInput.value.trim() : '';
+
+            if (!name || !email || !message) {
+                alert('দয়া করে সব ফিল্ডগুলো পূরণ করুন।');
+                return;
+            }
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1"></i> Sending...';
+            }
+
+            try {
+                // ফায়ারবেস কমপ্যাট ভার্সন ব্যবহার করে ডাটা সেভ করা
+                await firebase.firestore().collection("messages").add({
+                    name: name,
+                    email: email,
+                    message: message,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                alert('আপনার মেসেজটি সফলভাবে পাঠানো হয়েছে! ধন্যবাদ। 🚀');
+                e.target.reset();
+            } catch (error) {
+                console.error("মেসেজ পাঠাতে সমস্যা হয়েছে: ", error);
+                alert('মেসেজ পাঠানো সম্ভব হয়নি। আবার চেষ্টা করুন।');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Submit';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

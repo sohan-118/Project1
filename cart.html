@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Premium Perfume Shop</title>
+     <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-neutral-50 font-['Inter'] text-neutral-800">
+
+    <!-- MAIN CONTAINER -->
+   <div class="custom-navbar-wrapper mb-4 md:mb-8 w-full">
+    <header class="top-header w-full flex flex-col lg:flex-row items-center justify-between gap-4 px-4 py-4">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo shrink-0 text-2xl md:text-3xl">
+            SCENT<span>.</span>
+        </a>
+
+        <!-- Search -->
+        <div class="nav-search-wrapper w-full lg:flex-1 lg:max-w-xl order-3 lg:order-none">
+            <div class="flex w-full">
+                <input
+                    type="text"
+                    placeholder="Search in..."
+                    class="nav-search-input w-full min-w-0"
+                >
+                <button class="nav-search-btn shrink-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Header utilities -->
+        <div class="header-utls w-full lg:w-auto flex flex-wrap justify-center lg:justify-end items-center gap-3">
+
+            <!-- Language -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-sm bg-white">
+                <i class="fa-solid fa-globe text-[#F26522]"></i>
+                <select
+                    id="languageSelect"
+                    class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700 max-w-[90px]"
+                >
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                </select>
+            </div>
+
+            <a href="track-order.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-circle-question"></i>
+                <span>Track Order</span>
+            </a>
+
+            <a href="login.html" id="user-auth-link" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-user"></i>
+                <span>Sign In</span>
+            </a>
+
+            <a href="wishlist.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="utl-item relative whitespace-nowrap">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span>Cart</span>
+
+                <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">
+                    1
+                </span>
+            </a>
+
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="menu-ribbon w-full">
+        <ul class="menu-container flex items-center justify-center gap-2 sm:gap-4 md:gap-8 px-2 w-full overflow-hidden">
+
+            <li class=" shrink-0">
+                <a href="index.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    Home
+                </a>
+            </li>
+
+            <li class=" shrink-0">
+                <a href="products.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    All~Product
+                </a>
+            </li>
+
+            <li class="shrink-0">
+                <a href="about.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    About
+                </a>
+            </li>
+
+            <li class="shrink-0">
+        <a href="contact.html"
+           class="menu-link font-bold text-sm sm:text-lg md:text-[25px] whitespace-nowrap">
+            Contact us
+        </a>
+    </li>
+
+        </ul>
+    </nav>
+</div>
+        <!-- Cart Content -->
+        <main class="max-w-[1280px] mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl font-['Playfair_Display'] font-bold mb-6 text-neutral-900 border-b pb-3">Your Shopping Cart</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Cart Items List (ডাইনামিক রেন্ডারিং কন্টেইনার) -->
+                <div class="lg:col-span-2 space-y-4" id="cart-items-container">
+                    <!-- জাভাস্ক্রিপ্ট দিয়ে কার্টের প্রোডাক্টগুলো এখানে স্বয়ংক্রিয়ভাবে লোড হবে -->
+                </div>
+
+                <!-- Cart Summary / Checkout Box -->
+                <div class="bg-white border border-neutral-200 rounded-lg p-6 shadow-sm h-fit">
+                    <h3 class="font-bold text-sm text-neutral-900 uppercase tracking-wider mb-4 border-b pb-2">Order Summary</h3>
+                    <div class="space-y-2.5 text-xs text-neutral-600 mb-6">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span id="cart-total-price" class="font-semibold text-neutral-900">৳ ০</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Delivery Charge</span>
+                            <span class="font-semibold text-neutral-900">৳ 60</span>
+                        </div>
+                        <div class="border-t pt-2.5 flex justify-between text-sm font-bold text-neutral-900">
+                            <span>Grand Total</span>
+                            <span id="cart-grand-total" class="text-[#F26522]">৳ 60</span>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='checkout.html'" class="w-full py-2.5 bg-[#F26522] text-white text-xs font-semibold rounded hover:bg-neutral-800 transition-colors shadow-sm text-center block">
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- ================= 8. COMPACT MEGA FOOTER ================= -->
+        <footer class="bg-white border-t border-neutral-200 pt-8 pb-4 px-4 sm:px-6 mt-12">
+    <div class="max-w-[1280px] mx-auto">
+        
+        <!-- Top Row: Brand, Links Grid & Mobile Apps -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 pb-6 border-b border-neutral-100">
+            
+            <!-- Brand Info -->
+            <div class="lg:col-span-2">
+                <a href="#" class="font-['Playfair_Display'] text-[30px] font-bold tracking-wider text-neutral-900">SCENT<span class="text-[#F26522]">.</span></a>
+                <p class="text-[16px] text-justify text-neutral-500 mt-2 mb-3 leading-relaxed max-w-sm">Scent Perfume Atelier is a premium e-commerce platform dedicated to safe, pure and authentic French luxury perfumes & premium Oud blends.</p>
+                <div class="space-y-1.5 text-[16px] text-neutral-600 mb-3.5">
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-[#F26522] w-3.5"></i> Nikunjo 2, Dhaka, Bangladesh</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-[#F26522] w-3.5"></i> +8809642922922</p>
+                </div>
+                <!-- Social Icons -->
+                <div class="flex items-center gap-2">
+                    <a href="https://www.facebook.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://x.com/home" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <!-- Information -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Information</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">About us</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Contact us</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Terms & Conditions</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Privacy Policy</a>
+                </nav>
+            </div>
+            
+            <!-- Shop By (5 items) -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Shop By</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="oud.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Premium Oud</a>
+                    <a href="parfum.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Eau De Parfum</a>
+                    <a href="attar.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Premium Attar</a>
+                    <a href="mens-luxury.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Mens Luxury</a>
+                    <a href="gift-sets.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Gift Sets</a>
+                </nav>
+            </div>
+            
+            <!-- Support -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Support</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Support Center</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">How to Order</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Happy Return</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">FAQ</a>
+                </nav>
+            </div>
+
+            <!-- Mobile App Download Column -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Get Mobile App</h4>
+                <div class="flex flex-col gap-2">
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-google-play text-sm text-[#F26522]"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Get It On</span>
+                            <span class="text-[10px] font-bold">Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-apple text-sm text-white"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Download on</span>
+                            <span class="text-[10px] font-bold">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Payment Methods & SSLCommerz Badge -->
+        <div class="pt-4 pb-4 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                <span class="text-[15px] font-semibold text-neutral-500 uppercase tracking-wider">Pay With:</span>
+                
+                <!-- Payment Badges with Icons -->
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-blue-800 bg-blue-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/cash.jpg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-red-600 bg-red-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/Visa.svg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-sky-600 bg-sky-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/American.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-pink-700 bg-pink-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/Mastercard-logo.svg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-orange-700 bg-orange-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/bkash.svg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-purple-700 bg-purple-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/Nagad.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/44-84.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/4-84.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/upay.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/m-cash.jpeg" alt="jpg"></span>
+                </div>
+            </div>
+
+            <!-- SSLCommerz Verified Badge -->
+             
+            <div class="bg-blue-900 text-white text-[10px] font-bold px-2.5 py-1.5 rounded tracking-wide shadow-lg flex items-center gap-1">
+                <span>Verified by</span>
+                <span class="text-cyan-300 font-extrabold tracking-normal">SSLCOMMERZ</span>
+            </div>
+           
+        </div>
+
+    </div>
+    <div class=" h-16 flex justify-center items-center text-center border-solid border-t-2 border-indigo-500">
+            <p>© 2026 SCENT.  All rights reserved.</p>
+    </div>
+</footer>
+        <!-- ফায়ারবেস ও অন্যান্য স্ক্রিপ্ট ফাইল -->
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+        <script src="db.js"></script>
+        <script src="script.js"></script>
+        
+        <script>
+            // পেজ লোড হওয়ার সাথে সাথে লোকালস্টোরেজ থেকে ডাইনামিক কার্ট রেন্ডার করা
+            document.addEventListener("DOMContentLoaded", () => {
+                if (typeof renderCartPageItems === 'function') {
+                    renderCartPageItems();
+                }
+                if (typeof updateCartBadgeCount === 'function') {
+                    updateCartBadgeCount();
+                }
+            });
+        </script>
+</body>
+</html>

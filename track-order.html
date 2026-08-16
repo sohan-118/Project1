@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - SCENT.</title>
+     <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-neutral-50 font-['Inter'] text-neutral-800">
+
+    <!-- MAIN CONTAINER -->
+   <div class="custom-navbar-wrapper mb-4 md:mb-8 w-full">
+    <header class="top-header w-full flex flex-col lg:flex-row items-center justify-between gap-4 px-4 py-4">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo shrink-0 text-2xl md:text-3xl">
+            SCENT<span>.</span>
+        </a>
+
+        <!-- Search -->
+        <div class="nav-search-wrapper w-full lg:flex-1 lg:max-w-xl order-3 lg:order-none">
+            <div class="flex w-full">
+                <input
+                    type="text"
+                    placeholder="Search in..."
+                    class="nav-search-input w-full min-w-0"
+                >
+                <button class="nav-search-btn shrink-0">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Header utilities -->
+        <div class="header-utls w-full lg:w-auto flex flex-wrap justify-center lg:justify-end items-center gap-3">
+
+            <!-- Language -->
+            <div class="flex items-center gap-1 border border-neutral-200 rounded px-2 py-1 text-sm bg-white">
+                <i class="fa-solid fa-globe text-[#F26522]"></i>
+                <select
+                    id="languageSelect"
+                    class="bg-transparent outline-none cursor-pointer font-medium text-neutral-700 max-w-[90px]"
+                >
+                    <option value="en">English</option>
+                    <option value="bn">বাংলা</option>
+                </select>
+            </div>
+
+            <a href="track-order.html" class="utl-item whitespace-nowrap text-[#F26522]">
+                <i class="fa-regular fa-circle-question"></i>
+                <span>Track Order</span>
+            </a>
+
+            <a href="login.html" id="user-auth-link" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-user"></i>
+                <span>Sign In</span>
+            </a>
+
+            <a href="wishlist.html" class="utl-item whitespace-nowrap">
+                <i class="fa-regular fa-heart"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="cart.html" class="utl-item relative whitespace-nowrap">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span>Cart</span>
+
+                <span class="cart-count-badge bg-[#F26522] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center absolute -top-2 -right-3">
+                    1
+                </span>
+            </a>
+
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="menu-ribbon w-full">
+        <ul class="menu-container flex items-center justify-center gap-2 sm:gap-4 md:gap-8 px-2 w-full overflow-hidden">
+
+            <li class=" shrink-0">
+                <a href="index.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    Home
+                </a>
+            </li>
+
+            <li class=" shrink-0">
+                <a href="products.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    All~Product
+                </a>
+            </li>
+
+            <li class="shrink-0">
+                <a href="about.html"
+                   class="menu-link font-bold text-lg sm:text-xl md:text-[25px]">
+                    About
+                </a>
+            </li>
+
+            <li class="shrink-0">
+        <a href="contact.html"
+           class="menu-link font-bold text-sm sm:text-lg md:text-[25px] whitespace-nowrap">
+            Contact us
+        </a>
+    </li>
+
+        </ul>
+    </nav>
+</div>
+        <!-- Track Order Form Section -->
+         <main class="max-w-[1280px] mx-auto px-4 sm:px-6 py-6 sm:py-8"></main>
+        <div class="max-w-xl mx-auto bg-white border border-neutral-200/85 rounded-2xl p-6 sm:p-8 shadow-sm my-10 transition-all hover:shadow-md">
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-orange-50 text-[#F26522] rounded-full flex items-center justify-center mx-auto mb-3 text-lg">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-['Playfair_Display'] font-bold text-neutral-900 tracking-tight">Track Your Order</h2>
+                <p class="text-xs sm:text-sm text-neutral-500 mt-1">Enter your order ID or phone number to check the current status</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-1.5">Order ID or Phone Number</label>
+                    <input type="text" id="track-input" placeholder="e.g., #10293 or 017xxxxxxxx" class="w-full px-4 py-3 bg-neutral-50/50 border border-neutral-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:bg-white focus:border-[#F26522] focus:ring-2 focus:ring-[#F26522]/10 transition-all">
+                </div>
+
+                <button type="button" onclick="searchOrders()" class="w-full py-3.5 bg-[#F26522] text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-neutral-900 active:scale-[0.99] transition-all shadow-md shadow-[#F26522]/20 cursor-pointer">
+                    Check Status
+                </button>
+            </div>
+        </div>
+
+        <!-- Order Results & History Container -->
+        <div id="tracking-results" class="max-w-3xl mx-auto space-y-6 mb-16">
+            <!-- ডাইনামিকালি সার্চকৃত অর্ডার এবং হিস্ট্রি এখানে লোড হবে -->
+        </div>
+    </main>
+
+    <!-- ================= 8. COMPACT MEGA FOOTER ================= -->
+    <footer class="bg-white border-t border-neutral-200 pt-8 pb-4 px-4 sm:px-6 mt-12">
+    <div class="max-w-[1280px] mx-auto">
+        
+        <!-- Top Row: Brand, Links Grid & Mobile Apps -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 pb-6 border-b border-neutral-100">
+            
+            <!-- Brand Info -->
+            <div class="lg:col-span-2">
+                <a href="#" class="font-['Playfair_Display'] text-[30px] font-bold tracking-wider text-neutral-900">SCENT<span class="text-[#F26522]">.</span></a>
+                <p class="text-[16px] text-justify text-neutral-500 mt-2 mb-3 leading-relaxed max-w-sm">Scent Perfume Atelier is a premium e-commerce platform dedicated to safe, pure and authentic French luxury perfumes & premium Oud blends.</p>
+                <div class="space-y-1.5 text-[16px] text-neutral-600 mb-3.5">
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-[#F26522] w-3.5"></i> Rampura, Dhaka, Bangladesh</p>
+                    <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-[#F26522] w-3.5"></i> +8809642922922</p>
+                </div>
+                <!-- Social Icons -->
+                <div class="flex items-center gap-2">
+                    <a href="https://www.facebook.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0B57D0] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://x.com/home" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#F91F73] hover:text-white flex items-center justify-center text-[18px] text-neutral-700 transition-all" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <!-- Information -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Information</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">About us</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Contact us</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Terms & Conditions</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Privacy Policy</a>
+                </nav>
+            </div>
+            
+            <!-- Shop By (5 items) -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Shop By</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="oud.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Premium Oud</a>
+                    <a href="parfum.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Eau De Parfum</a>
+                    <a href="attar.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Premium Attar</a>
+                    <a href="mens-luxury.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Mens Luxury</a>
+                    <a href="gift-sets.html" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Gift Sets</a>
+                </nav>
+            </div>
+            
+            <!-- Support -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Support</h4>
+                <nav class="flex flex-col space-y-1.5 text-[11px]">
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Support Center</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">How to Order</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">Happy Return</a>
+                    <a href="#" class="text-[15px] text-neutral-500 hover:text-[#F26522] transition-colors">FAQ</a>
+                </nav>
+            </div>
+
+            <!-- Mobile App Download Column -->
+            <div class="pt-4">
+                <h4 class="text-[18px] font-bold uppercase tracking-wider text-neutral-800 mb-2.5">Get Mobile App</h4>
+                <div class="flex flex-col gap-2">
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-google-play text-sm text-[#F26522]"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Get It On</span>
+                            <span class="text-[10px] font-bold">Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#" class="bg-black text-white px-2.5 py-1.5 rounded flex items-center gap-2 hover:bg-neutral-800 transition-all">
+                        <i class="fa-brands fa-apple text-sm text-white"></i>
+                        <div class="text-left leading-tight">
+                            <span class="text-[7px] uppercase block opacity-75">Download on</span>
+                            <span class="text-[10px] font-bold">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row: Payment Methods & SSLCommerz Badge -->
+        <div class="pt-4 pb-4 flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                <span class="text-[15px] font-semibold text-neutral-500 uppercase tracking-wider">Pay With:</span>
+                
+                <!-- Payment Badges with Icons -->
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-blue-800 bg-blue-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/cash.jpg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-red-600 bg-red-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/Visa.svg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-sky-600 bg-sky-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/American.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-pink-700 bg-pink-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/Mastercard-logo.svg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-orange-700 bg-orange-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/bkash.svg" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-purple-700 bg-purple-50/60 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/Nagad.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/44-84.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/4-84.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/upay.png" alt="jpg"></span>
+                    <span class="px-2 py-1 border border-neutral-200/85 rounded font-bold text-neutral-700 bg-neutral-100 flex items-center gap-1 shadow-2xs"><img style="height: 35px; width: 60px;" src="./images/pay/m-cash.jpeg" alt="jpg"></span>
+                </div>
+            </div>
+
+            <!-- SSLCommerz Verified Badge -->
+             
+            <div class="bg-blue-900 text-white text-[10px] font-bold px-2.5 py-1.5 rounded tracking-wide shadow-lg flex items-center gap-1">
+                <span>Verified by</span>
+                <span class="text-cyan-300 font-extrabold tracking-normal">SSLCOMMERZ</span>
+            </div>
+           
+        </div>
+
+    </div>
+    <div class=" h-16 flex justify-center items-center text-center border-solid border-t-2 border-indigo-500">
+            <p>© 2026 SCENT.  All rights reserved.</p>
+    </div>
+</footer>
+
+    <!-- ১. ফায়ারবেস সিডিএন লাইব্রেরি -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script> <!-- ফায়ারবেস অথ লাইব্রেরি যুক্ত করা হয়েছে -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <!-- ৩. আপনার ডেটাবেজ ফাইল -->
+    <script src="db.js"></script>
+
+    <!-- ৪. আপনার মূল লজিক ফাইল -->
+    <script src="script.js"></script>
+
+    <!-- অর্ডারের ডেটা ট্র্যাক ও দেখানোর ডায়নামিক স্ক্রিপ্ট -->
+    <script>
+        function searchOrders() {
+            let inputVal = document.getElementById('track-input').value.trim();
+            const resultsContainer = document.getElementById('tracking-results');
+
+            if (!inputVal) {
+                alert("please enter an order ID or phone number.");
+                return;
+            }
+
+            let allOrders = JSON.parse(localStorage.getItem('orders')) || [];
+            
+            // ফোন নম্বর অথবা অর্ডার আইডি দিয়ে ফিল্টার করা
+            let matchedOrders = allOrders.filter(order => 
+                order.phone === inputVal || order.orderId.toLowerCase() === inputVal.toLowerCase()
+            );
+
+            resultsContainer.innerHTML = "";
+
+            if (matchedOrders.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="bg-white border border-neutral-200 rounded-2xl p-8 text-center shadow-sm">
+                        <div class="w-12 h-12 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-3 text-lg">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+                        <p class="text-sm text-neutral-600 font-semibold">No orders found with this information!</p>
+                        <p class="text-xs text-neutral-400 mt-1">Please double-check your Order ID or phone number and try again.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            matchedOrders.forEach((order) => {
+                let itemsHtml = '';
+                let subtotal = 0;
+
+                order.items.forEach(item => {
+                    let cleanPrice = parseInt(String(item.price).replace(/[^\d]/g, '')) || 0;
+                    let itemTotal = cleanPrice * (item.quantity || 1);
+                    subtotal += itemTotal;
+
+                    itemsHtml += `
+                        <div class="flex items-center justify-between border-b border-neutral-100 pb-3 mb-3">
+                            <div class="flex items-center gap-3">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" class="w-12 h-12 object-cover rounded-xl border border-neutral-200" alt="${item.title}">
+                                <div>
+                                    <h4 class="font-semibold text-neutral-900 text-xs line-clamp-1">${item.title}</h4>
+                                    <p class="text-[11px] text-neutral-500 font-medium">Quantity: ${item.quantity || 1} pcs | Price: ${item.price}</p>
+                                </div>
+                            </div>
+                            <span class="font-bold text-xs text-neutral-900 whitespace-nowrap">৳${itemTotal.toLocaleString('en-IN')}</span>
+                        </div>
+                    `;
+                });
+
+                let grandTotal = subtotal + 60; // ডেলিভারি চার্জ
+
+                // প্রোগ্রেস বার স্ট্যাটাস লজিক
+                let statusClass = "bg-orange-50 text-[#F26522]";
+                let step1 = "bg-[#F26522] text-white shadow-xs";
+                let step2 = "bg-neutral-100 text-neutral-400";
+                let step3 = "bg-neutral-100 text-neutral-400";
+
+                let currentStatus = order.status || 'Processing';
+                if (currentStatus === 'On The Way') {
+                    step2 = "bg-[#F26522] text-white shadow-xs";
+                } else if (currentStatus === 'Delivered') {
+                    step1 = "bg-emerald-500 text-white shadow-xs";
+                    step2 = "bg-emerald-500 text-white shadow-xs";
+                    step3 = "bg-emerald-500 text-white shadow-xs";
+                    statusClass = "bg-emerald-50 text-emerald-600 font-bold";
+                }
+
+                const orderCard = document.createElement('div');
+                orderCard.className = "bg-white border border-neutral-200 rounded-2xl p-6 sm:p-7 shadow-sm space-y-6 text-xs transition-all";
+
+                orderCard.innerHTML = `
+                    <div class="flex flex-wrap justify-between items-center border-b border-neutral-100 pb-4 gap-2">
+                        <div>
+                            <span class="font-bold text-[#F26522] bg-orange-50 px-3 py-1.5 rounded-lg">Order ID: ${order.orderId}</span>
+                            <span class="text-neutral-500 ml-2 font-medium">Date: ${order.date || 'N/A'}</span>
+                        </div>
+                        <div>
+                            <span class="font-bold px-3.5 py-1.5 rounded-full ${statusClass}">Status: ${currentStatus}</span>
+                        </div>
+                    </div>
+
+                    <!-- অর্ডারের প্রসেস স্টেজ -->
+                    <div class="space-y-2.5">
+                        <p class="font-bold text-neutral-400 uppercase tracking-wider text-[10px]">Order's Live Process:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center font-semibold text-xs">
+                            <div class="p-3 rounded-xl ${step1} flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-box-open"></i> 1. Order Received
+                            </div>
+                            <div class="p-3 rounded-xl ${step2} flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-truck-fast"></i> 2. Processing & Shipping
+                            </div>
+                            <div class="p-3 rounded-xl ${step3} flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-circle-check"></i> 3. Delivery Completed
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- কাস্টমার লোকেশন ও ডিটেইলস -->
+                    <div class="bg-neutral-50/70 p-4 sm:p-5 rounded-xl border border-neutral-200/80 space-y-2">
+                        <p class="font-bold text-neutral-700 uppercase tracking-wider text-[10px] mb-2 flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-[#F26522]"></i> Customer & Shipping Location:
+                        </p>
+                        <p class="text-neutral-600"><strong class="text-neutral-800">Name:</strong> ${order.name}</p>
+                        <p class="text-neutral-600"><strong class="text-neutral-800">Phone:</strong> ${order.phone}</p>
+                        <p class="text-neutral-600"><strong class="text-neutral-800">Delivery Address:</strong> ${order.address}</p>
+                        <p class="text-neutral-600"><strong class="text-neutral-800">Payment Method:</strong> ${order.paymentMethod === 'cod' ? 'Cash on Delivery (COD)' : 'Online Payment'}</p>
+                    </div>
+
+                    <!-- প্রোডাক্টের তালিকা -->
+                    <div>
+                        <p class="font-bold text-neutral-400 uppercase tracking-wider text-[10px] mb-3">Ordered Products:</p>
+                        <div class="space-y-1">
+                            ${itemsHtml}
+                        </div>
+                        <div class="flex justify-between items-center pt-3 border-t border-neutral-100 font-bold text-xs sm:text-sm">
+                            <span class="text-neutral-700">Grand Total (including delivery charge):</span>
+                            <span class="text-[#F26522] text-sm sm:text-base">৳${grandTotal.toLocaleString('en-IN')}</span>
+                        </div>
+                    </div>
+                `;
+
+                resultsContainer.appendChild(orderCard);
+            });
+        }
+    </script>
+</body>
+</html>
