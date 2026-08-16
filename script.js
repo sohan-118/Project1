@@ -177,49 +177,32 @@ function renderProducts(filterCategory) {
             
             const prodImg = product.images && product.images[0] ? product.images[0] : (product.image || '');
 
-            productCard.innerHTML = `
-               <div class="p-3 flex flex-col flex-grow">
-
-    <span class="text-[13px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">
-        ${product.brand ? product.brand : '&nbsp;'}
-    </span>
-
-    <h4 class="text-lg font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">
-        ${product.title || ''}
-    </h4>
-
-    <div class="mt-auto pt-2 border-t border-neutral-100
-                flex flex-col items-start gap-2
-                sm:flex-row sm:items-center sm:justify-between sm:gap-0">
-
-        <div class="flex flex-col">
-            <span class="text-lg font-bold text-[#F26522]">
-                ৳ ${product.price || ''}
-            </span>
-
-            ${Number(product.oldPrice) > Number(product.price)
-                ? `<span class="text-[17px] font-bold text-neutral-400 line-through">
-                     ৳ ${product.oldPrice}
-                   </span>`
-                : ''
-            }
-        </div>
-
-        <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');"
-            class="bg-white border border-[#F26522]
-                   text-[#F26522] hover:bg-[#F26522] hover:text-white
-                   text-[11px] sm:text-[15px]
-                   px-2 sm:px-3 py-1
-                   rounded transition-colors
-                   flex items-center gap-1 shadow-sm">
-
-            <i class="fa-solid fa-cart-shopping"></i>
-            Add To Cart
-
-        </button>
-
-    </div>
-</div>
+           productCard.innerHTML = ` 
+                <div class="product-hover-popup absolute top-2 right-2 bg-neutral-900/90 text-white text-[10px] px-2.5 py-1 rounded shadow-md z-20 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 flex items-center gap-1.5 backdrop-blur-sm"> 
+                    <i class="fa-solid fa-eye text-[#F26522]"></i> Quick View 
+                </div> 
+                <div class="relative w-full h-48 overflow-hidden bg-neutral-100 flex items-center justify-center"> 
+                    <img src="${prodImg}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${product.title || ''}"> 
+                </div> 
+                <div class="p-3 flex flex-col flex-grow"> 
+                    <span class="text-[13px] font-bold text-neutral-400 uppercase tracking-widest min-h-[14px]">${product.brand ? product.brand : '&nbsp;'}</span> 
+                    <h4 class="text-lg font-semibold text-neutral-800 line-clamp-2 mt-1 min-h-[32px]">${product.title || ''}</h4> 
+                    
+                    <div class="mt-2 flex items-center justify-between mt-auto pt-2 border-t border-neutral-100 max-sm:flex-col max-sm:items-start max-sm:gap-2"> 
+                    
+                    <div class="flex flex-col"> 
+                    <span class="text-lg font-bold text-[#F26522]">৳ ${product.price || ''}</span> 
+                   
+                   ${Number(product.oldPrice) > Number(product.price)? `<span class="text-[17px] font-bold text-neutral-400 line-through">৳ ${product.oldPrice}</span>`: ''} 
+                   
+                   </div> 
+                   
+                        <button onclick="event.stopPropagation(); addProductToCartDirect('${product.id}');" class="bg-white border border-[#F26522] text-[#F26522] hover:bg-[#F26522] hover:text-white text-[15px] max-sm:text-[11px] px-3 max-sm:px-2 py-1 rounded transition-colors flex items-center gap-1 shadow-sm"> 
+                            <i class="fa-solid fa-cart-shopping"></i> Add To Cart 
+                        </button> 
+                        
+                    </div> 
+                </div> 
             `;
             gridContainer.appendChild(productCard);
         });
