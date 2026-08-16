@@ -148,12 +148,18 @@
 }
 .menu-link {
     display: block;
-    padding: 10px 16px;
+    padding: 5px 8px;
     color: #ffffff;
     font-size: 12px;
     font-weight: 500;
     text-decoration: none;
     transition: background-color 0.2s;
+}
+@media (min-width: 768px) {
+    .menu-link {
+        padding: 10px 16px;
+        font-size: 25px;
+    }
 }
 .menu-link:hover {
     background-color: #F26522;
