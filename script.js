@@ -1114,6 +1114,7 @@ if (typeof firebase !== 'undefined' && firebase.auth) {
 // ================= HERO BANNER SLIDER & MANUAL CHANGE SYSTEM =================
 let bannerImages = []; 
 let currentImageIndex = 0;
+let sliderInterval = null;
 
 function showSlideImage(index) {
     const slideImage = document.querySelector('#slide-1 img');
@@ -1141,7 +1142,29 @@ function prevSlide() {
     showSlideImage(currentImageIndex);
 }
 
-let sliderInterval = setInterval(nextSlide, 5000);
+// অটো স্লাইড চালু করার ফাংশন
+function startSliderTimer() {
+    if (sliderInterval) clearInterval(sliderInterval);
+    if (bannerImages.length > 1) {
+        sliderInterval = setInterval(nextSlide, 5000);
+    }
+}
+
+// ফায়ারবেস বা ডেটাবেজ থেকে হিরো স্লাইড লোড করে অ্যারেতে সেট করার ফাংশন
+function initHeroSliders(productsArray) {
+    if (!productsArray || !Array.isArray(productsArray)) return;
+    
+    const sliderProducts = productsArray.filter(p => p.homeSection && (p.homeSection === 'slider-1' || p.homeSection === 'slider-2' || p.homeSection.startsWith('slider-')));
+    
+    if (sliderProducts.length > 0) {
+        bannerImages = sliderProducts.map(p => p.image || (p.images && p.images[0]) || '').filter(url => url !== '');
+        
+        if (bannerImages.length > 0) {
+            showSlideImage(0);
+            startSliderTimer();
+        }
+    }
+}
 
 // ================= DOCUMENT LOAD EVENTS =================
 document.addEventListener('DOMContentLoaded', () => {
@@ -1219,6 +1242,7 @@ function showPopupNotification(message) {
         setTimeout(() => toast.remove(), 300);
     }, 3000);
 }
+
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
 window.loadMoreProducts = loadMoreProducts;
@@ -1234,3 +1258,4 @@ window.addProductToCartDirect = addProductToCartDirect;
 window.removeFromCart = removeFromCart;
 window.renderCartPageItems = renderCartPageItems;
 window.updateCartBadgeCount = updateCartBadgeCount;
+window.initHeroSliders = initHeroSliders;
