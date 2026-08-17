@@ -594,13 +594,14 @@
 
             const imageUrl = data.secure_url;
 
-            // ফায়ারবেসে শুধু হিরো ব্যানারের ডেটা সেভ হবে
-            await addDoc(collection(db, "products"), {
+            // ফায়ারবেসে হিরো ব্যানারটি 'banners' কালেকশনে সেভ হবে (যাতে প্রোডাক্ট লিস্টে না যায়)
+            await addDoc(collection(db, "banners"), {
                 homeSection: homeSectionVal, // slider-1 বা slider-2
                 image: imageUrl,
                 title: "Hero Banner",
                 price: "",
                 category: "Hero Banner",
+                isBannerOnly: true,
                 createdAt: serverTimestamp()
             });
 
@@ -673,7 +674,7 @@
 
             submitBtn.innerText = "Saving product...";
 
-            // ফায়ারস্টোরে ডেটা সেভ করা (হিরো ব্যানার হলে isBannerOnly: true থাকবে)
+            // ফায়ারস্টোরে ডেটা সেভ করা (হিরো ব্যানার হলে 'banners' কালেকশনে যাবে, অন্যথায় 'products' কালেকশনে)
             const productData = {
                 title: isHero ? "Hero Banner" : (document.getElementById('p-title')?.value || ""),
                 brand: isHero ? "" : (document.getElementById('p-brand')?.value || ""),
@@ -688,7 +689,10 @@
                 createdAt: new Date()
             };
 
-            await addDoc(collection(db, "products"), productData);
+            // কালেকশন নির্ধারণ: হিরো ব্যানার হলে 'banners', না হলে 'products'
+            const targetCollection = isHero ? "banners" : "products";
+
+            await addDoc(collection(db, targetCollection), productData);
 
             alert(isHero ? "Hero banner uploaded successfully! 🎉" : "Product uploaded successfully with main and gallery images! 🎉");
             

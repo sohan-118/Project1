@@ -596,7 +596,18 @@ function renderHomeSectionProducts(sectionName, containerId) {
 
     container.innerHTML = "";
     
-    const matched = allProducts.filter(p => p.homeSection && p.homeSection.trim().toLowerCase() === sectionName.trim().toLowerCase());
+    // ব্যানার আইটেমগুলোকে মূল প্রোডাক্ট সেকশন থেকে ফিল্টার করে বাদ দেওয়া হয়েছে
+    const matched = allProducts.filter(p => {
+        const pSection = p.homeSection ? p.homeSection.trim().toLowerCase() : "";
+        const targetSection = sectionName.trim().toLowerCase();
+        
+        // যদি আইটেমটি 'slider-1' বা ব্যানার হয় এবং বর্তমান সেকশনটি স্লাইডার না হয়, তবে বাদ যাবে
+        if (pSection === "slider-1" && targetSection !== "slider-1") {
+            return false;
+        }
+        
+        return pSection === targetSection;
+    });
 
     if (matched.length === 0) {
         container.innerHTML = "<p class='text-xs text-neutral-400 col-span-full py-4 text-center'>No products found in this section.</p>";
@@ -634,6 +645,10 @@ function renderHomeSectionProducts(sectionName, containerId) {
         container.appendChild(productCard);
     });
 }
+
+// অটো স্লাইড পরিবর্তনের জন্য গ্লোবাল ভেরিয়েবল
+let bannerInterval = null;
+
 async function loadDynamicBanners(db) {
     try {
         const { collection, onSnapshot, query } = await import("https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js");
@@ -664,142 +679,102 @@ async function loadDynamicBanners(db) {
             });
 
             // ================= [ হিরো স্লাইডার ১ (slider-1) লজিক ] =================
-
             let slider1Products = allDocs.filter(p => {
-
                 const section = p.homeSection ? p.homeSection.trim() : "";
-
                 const imgUrl = p.images && p.images[0] ? p.images[0] : p.image;
-
                 return imgUrl && section === "slider-1";
-
             });
-
-
 
             // সর্টেড লিস্ট থেকে একদম লেটেস্ট ৩টি প্রোডাক্ট নিশ্চিত করা
-
             let finalHeroProducts = slider1Products.length > 0 ? slider1Products.slice(-3) : allDocs.filter(p => p.images && p.images[0] || p.image).slice(-3);
 
-
-
             finalHeroProducts.forEach(product => {
-
                 const imgUrl = product.images && product.images[0] ? product.images[0] : product.image;
-
                 firebaseSlideImages.push(imgUrl);
-
                 window.firebaseSlideProductIds.push(product.id);
-
             });
-
-
 
             // স্লাইডার ইনিশিয়োলাইজ ও রানিং লজিক (স্লাইডার অ্যারে রিয়েল-টাইমে আপডেট নিশ্চিতকরণ)
-
             if (firebaseSlideImages.length > 0) {
-
                 const isArrayChanged = JSON.stringify(bannerImages) !== JSON.stringify(firebaseSlideImages);
-
-               
-
-                bannerImages = [...firebaseSlideImages];
-
-               
-
+                
+                bannerImages = [...firebaseSlideImages]; 
+                
                 if (isArrayChanged) {
-
                     currentImageIndex = 0; // নতুন প্রোডাক্ট আসলে একদম প্রথম স্লাইড থেকে রিসেট হবে
-
                 }
-
-               
-
+                
                 showSlideImage(currentImageIndex);
-
-               
-
+                
                 const slideContainer = document.querySelector('#slide-1');
-
                 if (slideContainer) {
-
-                    slideContainer.style.cursor = 'pointer';
-
-                    slideContainer.onclick = function() {
-
-                        const activeId = window.firebaseSlideProductIds && window.firebaseSlideProductIds[currentImageIndex] ? window.firebaseSlideProductIds[currentImageIndex] : '1';
-
-                        window.location.href = `product-details.html?id=${activeId}`;
-
+                    // ব্যানার হওয়ায় এতে কোনো ক্লিক বা ডিটেইলস পেজে যাওয়ার লিংক কাজ করবে না
+                    slideContainer.style.cursor = 'default';
+                    slideContainer.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return false;
                     };
-
                 }
-
             }
-
-
 
             // হিরো সেকশনের প্রথম ডিসপ্লে ইমেজ ও টাইটেল আপডেট
-
             if (finalHeroProducts.length > 0) {
-
                 const firstProd = finalHeroProducts[currentImageIndex] || finalHeroProducts[0];
-
                 const imgUrl = firstProd.images && firstProd.images[0] ? firstProd.images[0] : firstProd.image;
-
                 const img = document.getElementById("hero-img-1");
-
                 const title = document.getElementById("hero-title-1");
-
-               
-
+                
                 if (img) {
-
                     img.src = imgUrl + "?t=" + new Date().getTime();
-
-                    img.style.cursor = "pointer";
-
+                    img.style.cursor = "default";
                     img.className = "absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500";
-
-                   
-
-                    img.onclick = function() {
-
-                        const activeId = window.firebaseSlideProductIds && window.firebaseSlideProductIds[currentImageIndex] ? window.firebaseSlideProductIds[currentImageIndex] : firstProd.id;
-
-                        window.location.href = `product-details.html?id=${activeId}`;
-
+                    
+                    // ইমেজে ক্লিক করলে প্রোডাক্ট ডিটেইলসে যাবে না
+                    img.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        return false;
                     };
-
                 }
-
                 if (title && firstProd.title) title.innerHTML = firstProd.title;
-
             }
 
-
-
             // পেজ লোড হওয়ার পর ব্যানার এবং টাইটেলগুলো দৃশ্যমান করার ক্লাস যুক্ত করা
-
             document.querySelectorAll('#hero-img-1, #hero-img-2, #side-banner-img, #hero-title-1, #hero-title-2, #side-banner-title').forEach(el => {
-
                 el.classList.add('banner-loaded');
-
             });
 
+            // ================= [ ৩ সেকেন্ড পরপর অটো স্লাইড পরিবর্তনের টাইমার ] =================
+            if (!bannerInterval && bannerImages.length > 1) {
+                bannerInterval = setInterval(() => {
+                    currentImageIndex = (currentImageIndex + 1) % bannerImages.length;
+                    
+                    // স্লাইড ইমেজ আপডেট
+                    showSlideImage(currentImageIndex);
+                    
+                    // হিরো ইমেজ ও টাইটেল আপডেট
+                    const currentProd = finalHeroProducts[currentImageIndex] || finalHeroProducts[0];
+                    if (currentProd) {
+                        const imgUrl = currentProd.images && currentProd.images[0] ? currentProd.images[0] : currentProd.image;
+                        const img = document.getElementById("hero-img-1");
+                        const title = document.getElementById("hero-title-1");
+                        
+                        if (img && imgUrl) {
+                            img.src = imgUrl + "?t=" + new Date().getTime();
+                        }
+                        if (title && currentProd.title) {
+                            title.innerHTML = currentProd.title;
+                        }
+                    }
+                }, 3000); // ৩০০০ মিলিভসেকেন্ড = ৩ সেকেন্ড
+            }
         });
 
-
-
     } catch (error) {
-
         console.error("Dynamic Banner load error: ", error);
-
     }
-
-} 
-
-
+}
 window.initializeProducts = function(fbProducts, dbInstance) {
     if (fbProducts && fbProducts.length > 0) {
         // ফায়ারবেসের ডাটার সাথে নরমালাইজড ক্যাটাগরি ফিল্ড নিশ্চিত করা
