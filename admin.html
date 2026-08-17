@@ -622,10 +622,15 @@
         event.preventDefault();
         
         const submitBtn = document.getElementById('submit-btn');
+        if (!submitBtn) return;
+
         submitBtn.disabled = true;
         submitBtn.innerText = "Uploading images...";
 
         try {
+            const homeSectionVal = document.getElementById('p-home-section')?.value || "";
+            const isHero = (homeSectionVal === 'slider-1' || homeSectionVal === 'slider-2');
+
             const mainImageFile = document.getElementById('p-main-image')?.files?.[0];
             const galleryFiles = document.getElementById('p-image-file')?.files;
             
@@ -647,8 +652,8 @@
                 }
             }
 
-            // ২. এরপর একসাথে সিলেক্ট করা ৩টি ছবি একে একে আপলোড করা হচ্ছে
-            if (galleryFiles) {
+            // ২. এরপর একসাথে সিলেক্ট করা ৩টি ছবি একে একে আপলোড করা হচ্ছে (যদি হিরো ব্যানার না হয়)
+            if (!isHero && galleryFiles) {
                 for (let i = 0; i < galleryFiles.length; i++) {
                     const formData = new FormData();
                     formData.append("file", galleryFiles[i]);
@@ -668,24 +673,37 @@
 
             submitBtn.innerText = "Saving product...";
 
-            // ফায়ারস্টোরে ডেটা সেভ করা
+            // ফায়ারস্টোরে ডেটা সেভ করা (হিরো ব্যানার হলে isBannerOnly: true থাকবে)
             const productData = {
-                title: document.getElementById('p-title').value,
-                brand: document.getElementById('p-brand').value,
-                category: document.getElementById('p-category').value,
-                price: document.getElementById('p-price').value,
-                oldPrice: document.getElementById('p-old-price').value,
-                homeSection: document.getElementById('p-home-section').value,
-                description: document.getElementById('p-desc').value,
+                title: isHero ? "Hero Banner" : (document.getElementById('p-title')?.value || ""),
+                brand: isHero ? "" : (document.getElementById('p-brand')?.value || ""),
+                category: isHero ? "banner" : (document.getElementById('p-category')?.value || ""),
+                price: isHero ? "" : (document.getElementById('p-price')?.value || ""),
+                oldPrice: isHero ? "" : (document.getElementById('p-old-price')?.value || ""),
+                homeSection: homeSectionVal,
+                description: isHero ? "" : (document.getElementById('p-desc')?.value || ""),
                 image: imageUrls[0] || "", // মেইন ছবিটি প্রধান থাম্বনেইল হিসেবে থাকবে
                 images: imageUrls,         // মেইন ইমেজসহ সব ছবির লিংকগুলো অ্যারে হিসেবে সেভ হবে
+                isBannerOnly: isHero,      // এটি true থাকার কারণে ব্যানার প্রোডাক্ট হিসেবে কাজ করবে না
                 createdAt: new Date()
             };
 
             await addDoc(collection(db, "products"), productData);
 
-            alert("Product uploaded successfully with main and gallery images!");
-            document.getElementById('live-admin-form').reset();
+            alert(isHero ? "Hero banner uploaded successfully! 🎉" : "Product uploaded successfully with main and gallery images! 🎉");
+            
+            const formEl = document.getElementById('live-admin-form');
+            if (formEl) formEl.reset();
+
+            // ফর্ম রিসেট হওয়ার পর ফিল্ডগুলোর ডিসেবল স্ট্যাটাস ও ক্লাস রিসেট করা
+            const fieldsToToggle = ['p-title', 'p-brand', 'p-category', 'p-price', 'p-old-price', 'p-image-file', 'p-desc'];
+            fieldsToToggle.forEach(id => {
+                const field = document.getElementById(id);
+                if (field) {
+                    field.disabled = false;
+                    field.classList.remove('bg-slate-100', 'cursor-not-allowed', 'opacity-60');
+                }
+            });
             
             if (typeof loadAdminProductsTable === 'function') {
                 loadAdminProductsTable();
@@ -701,6 +719,44 @@
     }
 
 
+window.handleBannerSectionChange = function() {
+    const homeSectionSelect = document.getElementById('p-home-section');
+    if (!homeSectionSelect) return;
+
+    const selectedVal = homeSectionSelect.value;
+    // চেক করা হচ্ছে Hero Slider 1 বা Hero Slider 2 সিলেক্ট করা হয়েছে কিনা
+    const isHero = (selectedVal === 'slider-1' || selectedVal === 'slider-2');
+
+    // যে ফিল্ডগুলো ফ্রিজ করতে হবে
+    const fieldsToToggle = [
+        { id: 'p-title', isReq: true },
+        { id: 'p-brand', isReq: false },
+        { id: 'p-category', isReq: false },
+        { id: 'p-price', isReq: true },
+        { id: 'p-old-price', isReq: false },
+        { id: 'p-image-file', isReq: true }, // Gallery images
+        { id: 'p-desc', isReq: false }
+    ];
+
+    fieldsToToggle.forEach(item => {
+        const field = document.getElementById(item.id);
+        if (field) {
+            if (isHero) {
+                field.disabled = true;
+                field.removeAttribute('required'); // ব্রাউজারের বাধ্যতামূলক চেক দূর করার জন্য
+                field.value = '';
+                field.classList.add('bg-slate-100', 'cursor-not-allowed', 'opacity-60');
+            } else {
+                field.disabled = false;
+                // সাধারণ পণ্য হলে যেগুলোতে আগে required ছিল সেগুলো ফিরিয়ে দেওয়া
+                if (item.isReq) {
+                    field.setAttribute('required', 'true');
+                }
+                field.classList.remove('bg-slate-100', 'cursor-not-allowed', 'opacity-60');
+            }
+        }
+    });
+};
 // ১. ফায়ারস্টোর থেকে প্রোডাক্ট ফেচ করে All Products Management টেবিলে দেখানোর জন্য
 async function loadAdminProductsTable() {
     let targetContainer = document.getElementById('admin-all-products-table');
@@ -1220,7 +1276,7 @@ window.loadProductsForCoupon = async function() {
             }
         }
 
-window.filterOrdersByDate = function() {
+        window.filterOrdersByDate = function() {
             let startDateVal = document.getElementById('filter-start-date').value;
             let endDateVal = document.getElementById('filter-end-date').value;
 
@@ -1234,39 +1290,33 @@ window.filterOrdersByDate = function() {
             let filtered = orders.filter(order => {
                 if (!order.date) return false;
                 
-                let orderDateObj;
-                // যদি অর্ডার ডেটটি ইতিমধ্যে YYYY-MM-DD বা স্ট্যান্ডার্ড ফরম্যাটে থাকে অথবা ডট/হাইফেন যুক্ত থাকে
-                if (order.date.includes('-')) {
-                    orderDateObj = new Date(order.date);
-                } else {
-                    let parts = order.date.split('/');
-                    if (parts.length !== 3) return false;
-                    
-                    let day = parts[0].padStart(2, '0');
-                    let month = parts[1].padStart(2, '0');
-                    let year = parts[2];
-                    
-                    // প্রথমে YYYY-MM-DD ফরম্যাটে চেক করা
-                    orderDateObj = new Date(`${year}-${month}-${day}`);
-                    if (isNaN(orderDateObj.getTime())) {
-                        orderDateObj = new Date(`${parts[2]}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`);
-                    }
+                let parts = order.date.split('/');
+                if (parts.length !== 3) return false;
+                
+                let day = parts[0].padStart(2, '0');
+                let month = parts[1].padStart(2, '0');
+                let year = parts[2];
+                
+                let orderDateObj = new Date(`${year}-${month}-${day}`);
+                if (isNaN(orderDateObj.getTime())) {
+                    orderDateObj = new Date(`${parts[2]}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`);
                 }
                 
                 if (isNaN(orderDateObj.getTime())) return false;
 
-                // টাইমজোন ও আওয়ারের প্রভাব এড়াতে শুধুমাত্র সাল-মাস-দিন কম্পেয়ার করা
-                let orderYear = orderDateObj.getFullYear();
-                let orderMonth = String(orderDateObj.getMonth() + 1).padStart(2, '0');
-                let orderDay = String(orderDateObj.getDate()).padStart(2, '0');
-                let orderDateOnly = `${orderYear}-${orderMonth}-${orderDay}`;
+                let start = startDateVal ? new Date(startDateVal) : null;
+                let end = endDateVal ? new Date(endDateVal) : null;
 
-                if (startDateVal && endDateVal) {
-                    return orderDateOnly >= startDateVal && orderDateOnly <= endDateVal;
-                } else if (startDateVal) {
-                    return orderDateOnly >= startDateVal;
-                } else if (endDateVal) {
-                    return orderDateOnly <= endDateVal;
+                if (start) start.setHours(0, 0, 0, 0);
+                if (end) end.setHours(23, 59, 59, 999);
+                orderDateObj.setHours(0, 0, 0, 0);
+
+                if (start && end) {
+                    return orderDateObj >= start && orderDateObj <= end;
+                } else if (start) {
+                    return orderDateObj >= start;
+                } else if (end) {
+                    return orderDateObj <= end;
                 }
                 return true;
             });

@@ -664,73 +664,141 @@ async function loadDynamicBanners(db) {
             });
 
             // ================= [ হিরো স্লাইডার ১ (slider-1) লজিক ] =================
+
             let slider1Products = allDocs.filter(p => {
+
                 const section = p.homeSection ? p.homeSection.trim() : "";
+
                 const imgUrl = p.images && p.images[0] ? p.images[0] : p.image;
+
                 return imgUrl && section === "slider-1";
+
             });
+
+
 
             // সর্টেড লিস্ট থেকে একদম লেটেস্ট ৩টি প্রোডাক্ট নিশ্চিত করা
+
             let finalHeroProducts = slider1Products.length > 0 ? slider1Products.slice(-3) : allDocs.filter(p => p.images && p.images[0] || p.image).slice(-3);
 
+
+
             finalHeroProducts.forEach(product => {
+
                 const imgUrl = product.images && product.images[0] ? product.images[0] : product.image;
+
                 firebaseSlideImages.push(imgUrl);
+
                 window.firebaseSlideProductIds.push(product.id);
+
             });
+
+
 
             // স্লাইডার ইনিশিয়োলাইজ ও রানিং লজিক (স্লাইডার অ্যারে রিয়েল-টাইমে আপডেট নিশ্চিতকরণ)
+
             if (firebaseSlideImages.length > 0) {
+
                 const isArrayChanged = JSON.stringify(bannerImages) !== JSON.stringify(firebaseSlideImages);
-                
-                bannerImages = [...firebaseSlideImages]; 
-                
+
+               
+
+                bannerImages = [...firebaseSlideImages];
+
+               
+
                 if (isArrayChanged) {
+
                     currentImageIndex = 0; // নতুন প্রোডাক্ট আসলে একদম প্রথম স্লাইড থেকে রিসেট হবে
+
                 }
-                
+
+               
+
                 showSlideImage(currentImageIndex);
-                
+
+               
+
                 const slideContainer = document.querySelector('#slide-1');
+
                 if (slideContainer) {
+
                     slideContainer.style.cursor = 'pointer';
+
                     slideContainer.onclick = function() {
+
                         const activeId = window.firebaseSlideProductIds && window.firebaseSlideProductIds[currentImageIndex] ? window.firebaseSlideProductIds[currentImageIndex] : '1';
+
                         window.location.href = `product-details.html?id=${activeId}`;
+
                     };
+
                 }
+
             }
+
+
 
             // হিরো সেকশনের প্রথম ডিসপ্লে ইমেজ ও টাইটেল আপডেট
+
             if (finalHeroProducts.length > 0) {
+
                 const firstProd = finalHeroProducts[currentImageIndex] || finalHeroProducts[0];
+
                 const imgUrl = firstProd.images && firstProd.images[0] ? firstProd.images[0] : firstProd.image;
+
                 const img = document.getElementById("hero-img-1");
+
                 const title = document.getElementById("hero-title-1");
-                
+
+               
+
                 if (img) {
+
                     img.src = imgUrl + "?t=" + new Date().getTime();
+
                     img.style.cursor = "pointer";
+
                     img.className = "absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500";
-                    
+
+                   
+
                     img.onclick = function() {
+
                         const activeId = window.firebaseSlideProductIds && window.firebaseSlideProductIds[currentImageIndex] ? window.firebaseSlideProductIds[currentImageIndex] : firstProd.id;
+
                         window.location.href = `product-details.html?id=${activeId}`;
+
                     };
+
                 }
+
                 if (title && firstProd.title) title.innerHTML = firstProd.title;
+
             }
 
+
+
             // পেজ লোড হওয়ার পর ব্যানার এবং টাইটেলগুলো দৃশ্যমান করার ক্লাস যুক্ত করা
+
             document.querySelectorAll('#hero-img-1, #hero-img-2, #side-banner-img, #hero-title-1, #hero-title-2, #side-banner-title').forEach(el => {
+
                 el.classList.add('banner-loaded');
+
             });
+
         });
 
+
+
     } catch (error) {
+
         console.error("Dynamic Banner load error: ", error);
+
     }
-}
+
+} 
+
 
 window.initializeProducts = function(fbProducts, dbInstance) {
     if (fbProducts && fbProducts.length > 0) {
